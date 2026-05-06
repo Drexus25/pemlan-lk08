@@ -73,7 +73,6 @@ public class Menu extends javax.swing.JFrame {
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pinjamBukuPanel = new javax.swing.JPanel();
-        kembalikanBukuPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -384,7 +383,7 @@ public class Menu extends javax.swing.JFrame {
         lihatBukuPanel.setLayout(lihatBukuPanelLayout);
         lihatBukuPanelLayout.setHorizontalGroup(
             lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lihatBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addContainerGap())
@@ -424,19 +423,6 @@ public class Menu extends javax.swing.JFrame {
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
-
-        javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
-        kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
-        kembalikanBukuPanelLayout.setHorizontalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
-        );
-        kembalikanBukuPanelLayout.setVerticalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-
-        fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -581,7 +567,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField judulField;
     private javax.swing.JLabel judulLabel;
     private javax.swing.JPanel judulPanel;
-    private javax.swing.JPanel kembalikanBukuPanel;
     private javax.swing.JTextField kodeField;
     private javax.swing.JLabel kodeLabel;
     private javax.swing.JPanel kodePanel;
