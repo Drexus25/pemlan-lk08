@@ -73,16 +73,8 @@ public class Menu extends javax.swing.JFrame {
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pinjamBukuPanel = new javax.swing.JPanel();
-        pinjamKodeField = new javax.swing.JTextField();
-        pinjamNisField = new javax.swing.JTextField();
-        pinjamKodeBukuField = new javax.swing.JTextField();
-        pinjamTglField = new javax.swing.JTextField();
-        pinjamButton = new javax.swing.JButton();
-        pinjamTransaksiLabel = new javax.swing.JLabel();
-        pinjamNisLabel = new javax.swing.JLabel();
-        pinjamBukuLabel = new javax.swing.JLabel();
-        pinjamTglLabel = new javax.swing.JLabel();
         kembalikanBukuPanel = new javax.swing.JPanel();
+<<<<<<< HEAD
         kembalikanKodeField = new javax.swing.JTextField();
         kembalikanTglField = new javax.swing.JTextField();
         kembalikanButton = new javax.swing.JButton();
@@ -136,6 +128,8 @@ public class Menu extends javax.swing.JFrame {
         buttonPanel3 = new javax.swing.JPanel();
         registerSiswaButton2 = new javax.swing.JButton();
         kembalikanBukuPanel = new javax.swing.JPanel();
+=======
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -474,6 +468,7 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
+<<<<<<< HEAD
 
         pinjamTransaksiLabel.setText("Kode Transaksi");
         pinjamNisLabel.setText("NIS");
@@ -761,10 +756,13 @@ public class Menu extends javax.swing.JFrame {
             buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registerSiswaButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+=======
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -828,11 +826,18 @@ public class Menu extends javax.swing.JFrame {
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        pinjamBukuPanelLayout.setVerticalGroup(
+            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
             .addGap(0, 350, Short.MAX_VALUE)
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
 
+<<<<<<< HEAD
         kembalikanKodeLabel.setText("Kode Transaksi");
         kembalikanTglLabel.setText("Tanggal Kembali");
         kembalikanButton.setText("Kembalikan");
@@ -925,10 +930,13 @@ public class Menu extends javax.swing.JFrame {
             buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registerSiswaButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+=======
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
         kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
         kembalikanBukuPanelLayout.setHorizontalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,6 +977,12 @@ public class Menu extends javax.swing.JFrame {
         );
         kembalikanBukuPanelLayout.setVerticalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        kembalikanBukuPanelLayout.setVerticalGroup(
+            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
             .addGap(0, 350, Short.MAX_VALUE)
         );
 

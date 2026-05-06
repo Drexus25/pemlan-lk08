@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+=======
+Main.class
+model\Siswa.class
+gui\Menu.class
+model\Pegawai.class
+model\Perpustakaan.class
+model\Buku.class
+Main$1.class
+gui\Login.class
+model\Transaksi.class
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
