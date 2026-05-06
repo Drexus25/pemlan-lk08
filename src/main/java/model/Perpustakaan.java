@@ -59,20 +59,9 @@ public class Perpustakaan {
         simpan("buku.txt", b.toString());
     }
 
-    static void pinjam() {
-        System.out.print("Kode Transaksi: ");
-        String kode = input.nextLine();
+    static void pinjam(String kodeTransaksi, String nis, String kodeBuku, String tglPinjam, String tglKembali) {
 
-        System.out.print("NIS: ");
-        String nis = input.nextLine();
-
-        System.out.print("Kode Buku: ");
-        String kodeBuku = input.nextLine();
-
-        System.out.print("Tanggal Pinjam: ");
-        String tglPinjam = input.nextLine();
-
-        Transaksi t = new Transaksi(kode, nis, kodeBuku, tglPinjam, "-", 0);
+        Transaksi t = new Transaksi(kodeTransaksi, nis, kodeBuku, tglPinjam, "-", 0);
         simpan("transaksi.txt", t.toString());
     }
 
