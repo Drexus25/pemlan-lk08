@@ -11,6 +11,7 @@ public class Siswa implements Serializable {
         this.alamat = alamat;
     }
 
+    @Override
     public String toString() {
         return nis + " - " + nama + " - " + alamat;
     }

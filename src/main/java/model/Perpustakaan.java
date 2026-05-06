@@ -5,19 +5,11 @@ import model.Siswa;
 import model.Buku;
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Perpustakaan {
     static Scanner input = new Scanner(System.in);
-    static final String PATH = "src/main/resources";
-
-    static boolean login(String nip, String nama) {
-        if (nip.equals("123") && nama.equals("admin")) {
-            return true;
-        } else {
-            System.out.println("Login gagal!");
-            return false;
-        }
-    }
+    static final String PATH = "src/main/resources/";
 
     public static void simpan(String file, String data) {
         File f = new File(PATH + file);
@@ -43,12 +35,11 @@ public class Perpustakaan {
     }
 
     public static void inputSiswa(String nis, String nama, String alamat) {
-       
         Siswa s = new Siswa(nis, nama, alamat);
         simpan("siswa.txt", s.toString());
     }
 
-    static void inputBuku(String kode, String judul, String jenis) {
+    public static void inputBuku(String kode, String judul, String jenis) {
         Buku b = new Buku(kode, judul, jenis);
         simpan("buku.txt", b.toString());
     }

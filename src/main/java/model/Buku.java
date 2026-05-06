@@ -37,6 +37,6 @@ public class Buku {
 
     @Override
     public String toString() {
-        return kode + " - " + judul + " (" + jenis + ")";
+        return kode + " - " + judul + " - " + jenis;
     }
 }
