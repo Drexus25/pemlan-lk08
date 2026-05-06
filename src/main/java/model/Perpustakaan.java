@@ -8,6 +8,7 @@ import java.util.*;
 
 public class Perpustakaan {
     static Scanner input = new Scanner(System.in);
+    static final String PATH = "src/main/resources";
 
     static boolean login(String nip, String nama) {
         if (nip.equals("123") && nama.equals("admin")) {
@@ -19,7 +20,8 @@ public class Perpustakaan {
     }
 
     public static void simpan(String file, String data) {
-        try (FileWriter fw = new FileWriter(file, true)) {
+        File f = new File(PATH + file);
+        try (FileWriter fw = new FileWriter(f, true)) {
             fw.write(data + "\n");
         } catch (IOException e) {
             System.out.println("Error simpan file: " + e.getMessage());
@@ -27,7 +29,8 @@ public class Perpustakaan {
     }
 
     static void tampil(String file) {
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        File f = new File(PATH + file);
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
             String line;
 
             while ((line = br.readLine()) != null) {
@@ -56,13 +59,13 @@ public class Perpustakaan {
         simpan("transaksi.txt", t.toString());
     }
 
-    static void kembali(String kodeTransaksi, String tglKembali) {
+    static void kembali(String kodeTransaksi, String tglKembali) {        
         
 
         List<String> dataBaru = new ArrayList<>();
         boolean ditemukan = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("transaksi.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/transaksi.txt"))) {
             String line;
 
             while ((line = br.readLine()) != null) {

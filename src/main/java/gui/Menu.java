@@ -5,7 +5,12 @@
 package gui;
 
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Buku;
 import model.Perpustakaan;
 import model.Siswa;
@@ -56,6 +61,9 @@ public class Menu extends javax.swing.JFrame {
         jenisField = new javax.swing.JTextField();
         buttonPanel = new javax.swing.JPanel();
         registerBukuButton = new javax.swing.JButton();
+        lihatBukuPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bukuTable = new javax.swing.JTable();
         inputSiswaPanel = new javax.swing.JPanel();
         nisPanel = new javax.swing.JPanel();
         nisField = new javax.swing.JTextField();
@@ -68,8 +76,6 @@ public class Menu extends javax.swing.JFrame {
         alamatField = new javax.swing.JTextField();
         buttonPanel1 = new javax.swing.JPanel();
         registerSiswaButton = new javax.swing.JButton();
-        lihatBukuPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pinjamBukuPanel = new javax.swing.JPanel();
@@ -261,6 +267,47 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(inputBukuPanel, "inputBukuCard");
 
+        bukuTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Kode Buku", "Judul", "Jenis"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(bukuTable);
+
+        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
+        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
+        lihatBukuPanelLayout.setHorizontalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+        lihatBukuPanelLayout.setVerticalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
+
         nisLabel.setText("NIS");
 
         javax.swing.GroupLayout nisPanelLayout = new javax.swing.GroupLayout(nisPanel);
@@ -379,25 +426,6 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(inputSiswaPanel, "inputSiswaCard");
 
-        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
-        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
-        lihatBukuPanelLayout.setHorizontalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lihatBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        lihatBukuPanelLayout.setVerticalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
-
         javax.swing.GroupLayout lihatSiswaPanelLayout = new javax.swing.GroupLayout(lihatSiswaPanel);
         lihatSiswaPanel.setLayout(lihatSiswaPanelLayout);
         lihatSiswaPanelLayout.setHorizontalGroup(
@@ -498,6 +526,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel dtm = (DefaultTableModel) bukuTable.getModel();
+        dtm.setRowCount(0);
+        String filePath = "src/main/resources/siswa.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while((line = br.readLine()) != null){
+                String[] data = line.split(" - ");
+                dtm.addRow(data);
+            }
+        } catch (FileNotFoundException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        } catch (IOException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
         cl.show(fieldCardPanel, "lihatBukuCard");
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -546,6 +588,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField alamatField;
     private javax.swing.JLabel alamatLabel;
     private javax.swing.JPanel alamatPanel;
+    private javax.swing.JTable bukuTable;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JPanel buttonPanel1;
     private javax.swing.JPanel buttonsPanel;

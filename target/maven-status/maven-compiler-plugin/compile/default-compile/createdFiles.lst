@@ -1,4 +1,5 @@
 Main.class
+gui\Menu$1.class
 model\Siswa.class
 gui\Menu.class
 model\Pegawai.class
