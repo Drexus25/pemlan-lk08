@@ -499,8 +499,7 @@ public class Menu extends javax.swing.JFrame {
         if(nis.equals("") || nama.equals("") || alamat.equals("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
-            Siswa siswa = new Siswa(nis, nama, alamat);
-            Perpustakaan.simpan("\\src\\main\\resources\\siswa.txt", siswa.toString());
+            Perpustakaan.inputSiswa(nis, nama, alamat);
             JOptionPane.showMessageDialog(this, "Input buku berhasil!");
             nisField.setText("");
             namaField.setText("");

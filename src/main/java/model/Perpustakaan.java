@@ -39,16 +39,8 @@ public class Perpustakaan {
         }
     }
 
-    static void inputSiswa() {
-        System.out.print("NIS: ");
-        String nis = input.nextLine();
-
-        System.out.print("Nama: ");
-        String nama = input.nextLine();
-
-        System.out.print("Alamat: ");
-        String alamat = input.nextLine();
-
+    public static void inputSiswa(String nis, String nama, String alamat) {
+       
         Siswa s = new Siswa(nis, nama, alamat);
         simpan("siswa.txt", s.toString());
     }
@@ -160,13 +152,13 @@ public class Perpustakaan {
             input.nextLine();
 
             switch (pilih) {
-                case 1: inputSiswa(); break;
+               /* case 1: inputSiswa(); break;
                 case 2: inputBuku(); break;
                 case 3: tampil("siswa.txt"); break;
                 case 4: tampil("buku.txt"); break;
                 case 5: pinjam(); break;
                 case 6: kembali(); break;
-                case 7: tampil("transaksi.txt"); break;
+                case 7: tampil("transaksi.txt"); break;*/
             }
 
         } while (pilih != 0);
