@@ -1,3 +1,5 @@
+package model;
+
 public class Buku {
     private String judul, kode, jenis;
 

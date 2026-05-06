@@ -4,12 +4,18 @@
  */
 package gui;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import model.Buku;
+import model.Perpustakaan;
+import model.Siswa;
+
 /**
  *
  * @author ini laptop
  */
 public class Menu extends javax.swing.JFrame {
-    
+    CardLayout cl;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
 
     /**
@@ -17,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        cl = (CardLayout) (fieldCardPanel.getLayout());
     }
 
     /**
@@ -28,21 +35,734 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonsPanel = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        fieldCardPanel = new javax.swing.JPanel();
+        inputBukuPanel = new javax.swing.JPanel();
+        kodePanel = new javax.swing.JPanel();
+        kodeField = new javax.swing.JTextField();
+        kodeLabel = new javax.swing.JLabel();
+        judulPanel = new javax.swing.JPanel();
+        judulField = new javax.swing.JTextField();
+        judulLabel = new javax.swing.JLabel();
+        jenisPanel = new javax.swing.JPanel();
+        jenisLabel = new javax.swing.JLabel();
+        jenisField = new javax.swing.JTextField();
+        buttonPanel = new javax.swing.JPanel();
+        registerBukuButton = new javax.swing.JButton();
+        inputSiswaPanel = new javax.swing.JPanel();
+        nisPanel = new javax.swing.JPanel();
+        nisField = new javax.swing.JTextField();
+        nisLabel = new javax.swing.JLabel();
+        namaPanel = new javax.swing.JPanel();
+        namaField = new javax.swing.JTextField();
+        namaLabel = new javax.swing.JLabel();
+        alamatPanel = new javax.swing.JPanel();
+        alamatLabel = new javax.swing.JLabel();
+        alamatField = new javax.swing.JTextField();
+        buttonPanel1 = new javax.swing.JPanel();
+        registerSiswaButton = new javax.swing.JButton();
+        lihatBukuPanel = new javax.swing.JPanel();
+        nisPanel2 = new javax.swing.JPanel();
+        nisField2 = new javax.swing.JTextField();
+        nisLabel2 = new javax.swing.JLabel();
+        namaPanel2 = new javax.swing.JPanel();
+        namaField2 = new javax.swing.JTextField();
+        namaLabel2 = new javax.swing.JLabel();
+        alamatPanel2 = new javax.swing.JPanel();
+        alamatLabel2 = new javax.swing.JLabel();
+        alamatField2 = new javax.swing.JTextField();
+        buttonPanel2 = new javax.swing.JPanel();
+        inputSiswaButton2 = new javax.swing.JButton();
+        lihatSiswaPanel = new javax.swing.JPanel();
+        nisPanel3 = new javax.swing.JPanel();
+        nisField3 = new javax.swing.JTextField();
+        nisLabel3 = new javax.swing.JLabel();
+        namaPanel3 = new javax.swing.JPanel();
+        namaField3 = new javax.swing.JTextField();
+        namaLabel3 = new javax.swing.JLabel();
+        alamatPanel3 = new javax.swing.JPanel();
+        alamatLabel3 = new javax.swing.JLabel();
+        alamatField3 = new javax.swing.JTextField();
+        buttonPanel3 = new javax.swing.JPanel();
+        inputSiswaButton3 = new javax.swing.JButton();
+        pinjamBukuPanel = new javax.swing.JPanel();
+        kembalikanBukuPanel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Input Buku");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        jButton2.setText("Input Siswa");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        jButton3.setText("Lihat Buku");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+
+        jButton4.setText("Lihat Siswa");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+
+        jButton5.setText("Pinjam Buku");
+        jButton5.addActionListener(this::jButton5ActionPerformed);
+
+        jButton6.setText("Kembalikan Buku");
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+
+        javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
+        buttonsPanel.setLayout(buttonsPanelLayout);
+        buttonsPanelLayout.setHorizontalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        buttonsPanelLayout.setVerticalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fieldCardPanel.setLayout(new java.awt.CardLayout(20, 0));
+
+        kodeLabel.setText("Kode");
+
+        javax.swing.GroupLayout kodePanelLayout = new javax.swing.GroupLayout(kodePanel);
+        kodePanel.setLayout(kodePanelLayout);
+        kodePanelLayout.setHorizontalGroup(
+            kodePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kodePanelLayout.createSequentialGroup()
+                .addGroup(kodePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kodeField)
+                    .addGroup(kodePanelLayout.createSequentialGroup()
+                        .addComponent(kodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        kodePanelLayout.setVerticalGroup(
+            kodePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kodeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+
+        judulLabel.setText("Judul");
+
+        javax.swing.GroupLayout judulPanelLayout = new javax.swing.GroupLayout(judulPanel);
+        judulPanel.setLayout(judulPanelLayout);
+        judulPanelLayout.setHorizontalGroup(
+            judulPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(judulPanelLayout.createSequentialGroup()
+                .addGroup(judulPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(judulField)
+                    .addGroup(judulPanelLayout.createSequentialGroup()
+                        .addComponent(judulLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        judulPanelLayout.setVerticalGroup(
+            judulPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, judulPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(judulLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(judulField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jenisLabel.setText("Jenis");
+
+        jenisField.addActionListener(this::jenisFieldActionPerformed);
+
+        javax.swing.GroupLayout jenisPanelLayout = new javax.swing.GroupLayout(jenisPanel);
+        jenisPanel.setLayout(jenisPanelLayout);
+        jenisPanelLayout.setHorizontalGroup(
+            jenisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jenisPanelLayout.createSequentialGroup()
+                .addGroup(jenisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jenisPanelLayout.createSequentialGroup()
+                        .addComponent(jenisLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jenisField))
+                .addContainerGap())
+        );
+        jenisPanelLayout.setVerticalGroup(
+            jenisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jenisPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jenisLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jenisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        registerBukuButton.setText("Daftar");
+        registerBukuButton.addActionListener(this::registerBukuButtonActionPerformed);
+
+        javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
+        buttonPanel.setLayout(buttonPanelLayout);
+        buttonPanelLayout.setHorizontalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
+                .addContainerGap(362, Short.MAX_VALUE)
+                .addComponent(registerBukuButton)
+                .addContainerGap())
+        );
+        buttonPanelLayout.setVerticalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerBukuButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout inputBukuPanelLayout = new javax.swing.GroupLayout(inputBukuPanel);
+        inputBukuPanel.setLayout(inputBukuPanelLayout);
+        inputBukuPanelLayout.setHorizontalGroup(
+            inputBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inputBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(judulPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jenisPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kodePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        inputBukuPanelLayout.setVerticalGroup(
+            inputBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kodePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(judulPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jenisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        fieldCardPanel.add(inputBukuPanel, "inputBukuCard");
+
+        nisLabel.setText("NIS");
+
+        javax.swing.GroupLayout nisPanelLayout = new javax.swing.GroupLayout(nisPanel);
+        nisPanel.setLayout(nisPanelLayout);
+        nisPanelLayout.setHorizontalGroup(
+            nisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nisPanelLayout.createSequentialGroup()
+                .addGroup(nisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisField)
+                    .addGroup(nisPanelLayout.createSequentialGroup()
+                        .addComponent(nisLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        nisPanelLayout.setVerticalGroup(
+            nisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+
+        namaLabel.setText("Nama");
+
+        javax.swing.GroupLayout namaPanelLayout = new javax.swing.GroupLayout(namaPanel);
+        namaPanel.setLayout(namaPanelLayout);
+        namaPanelLayout.setHorizontalGroup(
+            namaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(namaPanelLayout.createSequentialGroup()
+                .addGroup(namaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(namaPanelLayout.createSequentialGroup()
+                        .addComponent(namaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        namaPanelLayout.setVerticalGroup(
+            namaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, namaPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(namaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        alamatLabel.setText("Alamat");
+
+        javax.swing.GroupLayout alamatPanelLayout = new javax.swing.GroupLayout(alamatPanel);
+        alamatPanel.setLayout(alamatPanelLayout);
+        alamatPanelLayout.setHorizontalGroup(
+            alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alamatPanelLayout.createSequentialGroup()
+                .addGroup(alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(alamatPanelLayout.createSequentialGroup()
+                        .addComponent(alamatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(alamatField))
+                .addContainerGap())
+        );
+        alamatPanelLayout.setVerticalGroup(
+            alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alamatPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(alamatLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        registerSiswaButton.setText("Daftar");
+        registerSiswaButton.addActionListener(this::registerSiswaButtonActionPerformed);
+
+        javax.swing.GroupLayout buttonPanel1Layout = new javax.swing.GroupLayout(buttonPanel1);
+        buttonPanel1.setLayout(buttonPanel1Layout);
+        buttonPanel1Layout.setHorizontalGroup(
+            buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registerSiswaButton)
+                .addContainerGap())
+        );
+        buttonPanel1Layout.setVerticalGroup(
+            buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerSiswaButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout inputSiswaPanelLayout = new javax.swing.GroupLayout(inputSiswaPanel);
+        inputSiswaPanel.setLayout(inputSiswaPanelLayout);
+        inputSiswaPanelLayout.setHorizontalGroup(
+            inputSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputSiswaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inputSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(alamatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        inputSiswaPanelLayout.setVerticalGroup(
+            inputSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputSiswaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(buttonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        fieldCardPanel.add(inputSiswaPanel, "inputSiswaCard");
+
+        nisLabel2.setText("NIS");
+
+        javax.swing.GroupLayout nisPanel2Layout = new javax.swing.GroupLayout(nisPanel2);
+        nisPanel2.setLayout(nisPanel2Layout);
+        nisPanel2Layout.setHorizontalGroup(
+            nisPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nisPanel2Layout.createSequentialGroup()
+                .addGroup(nisPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisField2)
+                    .addGroup(nisPanel2Layout.createSequentialGroup()
+                        .addComponent(nisLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        nisPanel2Layout.setVerticalGroup(
+            nisPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nisField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+
+        namaLabel2.setText("Nama");
+
+        javax.swing.GroupLayout namaPanel2Layout = new javax.swing.GroupLayout(namaPanel2);
+        namaPanel2.setLayout(namaPanel2Layout);
+        namaPanel2Layout.setHorizontalGroup(
+            namaPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(namaPanel2Layout.createSequentialGroup()
+                .addGroup(namaPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaField2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(namaPanel2Layout.createSequentialGroup()
+                        .addComponent(namaLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        namaPanel2Layout.setVerticalGroup(
+            namaPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, namaPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(namaLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        alamatLabel2.setText("Alamat");
+
+        javax.swing.GroupLayout alamatPanel2Layout = new javax.swing.GroupLayout(alamatPanel2);
+        alamatPanel2.setLayout(alamatPanel2Layout);
+        alamatPanel2Layout.setHorizontalGroup(
+            alamatPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alamatPanel2Layout.createSequentialGroup()
+                .addGroup(alamatPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(alamatPanel2Layout.createSequentialGroup()
+                        .addComponent(alamatLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(alamatField2))
+                .addContainerGap())
+        );
+        alamatPanel2Layout.setVerticalGroup(
+            alamatPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alamatPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(alamatLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        inputSiswaButton2.setText("Daftar");
+        inputSiswaButton2.addActionListener(this::inputSiswaButton2ActionPerformed);
+
+        javax.swing.GroupLayout buttonPanel2Layout = new javax.swing.GroupLayout(buttonPanel2);
+        buttonPanel2.setLayout(buttonPanel2Layout);
+        buttonPanel2Layout.setHorizontalGroup(
+            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inputSiswaButton2)
+                .addContainerGap())
+        );
+        buttonPanel2Layout.setVerticalGroup(
+            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(inputSiswaButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
+        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
+        lihatBukuPanelLayout.setHorizontalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namaPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(alamatPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        lihatBukuPanelLayout.setVerticalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
+
+        nisLabel3.setText("NIS");
+
+        javax.swing.GroupLayout nisPanel3Layout = new javax.swing.GroupLayout(nisPanel3);
+        nisPanel3.setLayout(nisPanel3Layout);
+        nisPanel3Layout.setHorizontalGroup(
+            nisPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nisPanel3Layout.createSequentialGroup()
+                .addGroup(nisPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisField3)
+                    .addGroup(nisPanel3Layout.createSequentialGroup()
+                        .addComponent(nisLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        nisPanel3Layout.setVerticalGroup(
+            nisPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nisField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+
+        namaLabel3.setText("Nama");
+
+        javax.swing.GroupLayout namaPanel3Layout = new javax.swing.GroupLayout(namaPanel3);
+        namaPanel3.setLayout(namaPanel3Layout);
+        namaPanel3Layout.setHorizontalGroup(
+            namaPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(namaPanel3Layout.createSequentialGroup()
+                .addGroup(namaPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaField3, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(namaPanel3Layout.createSequentialGroup()
+                        .addComponent(namaLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        namaPanel3Layout.setVerticalGroup(
+            namaPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, namaPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(namaLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        alamatLabel3.setText("Alamat");
+
+        javax.swing.GroupLayout alamatPanel3Layout = new javax.swing.GroupLayout(alamatPanel3);
+        alamatPanel3.setLayout(alamatPanel3Layout);
+        alamatPanel3Layout.setHorizontalGroup(
+            alamatPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alamatPanel3Layout.createSequentialGroup()
+                .addGroup(alamatPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(alamatPanel3Layout.createSequentialGroup()
+                        .addComponent(alamatLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(alamatField3))
+                .addContainerGap())
+        );
+        alamatPanel3Layout.setVerticalGroup(
+            alamatPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alamatPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(alamatLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        inputSiswaButton3.setText("Daftar");
+        inputSiswaButton3.addActionListener(this::inputSiswaButton3ActionPerformed);
+
+        javax.swing.GroupLayout buttonPanel3Layout = new javax.swing.GroupLayout(buttonPanel3);
+        buttonPanel3.setLayout(buttonPanel3Layout);
+        buttonPanel3Layout.setHorizontalGroup(
+            buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inputSiswaButton3)
+                .addContainerGap())
+        );
+        buttonPanel3Layout.setVerticalGroup(
+            buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(inputSiswaButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout lihatSiswaPanelLayout = new javax.swing.GroupLayout(lihatSiswaPanel);
+        lihatSiswaPanel.setLayout(lihatSiswaPanelLayout);
+        lihatSiswaPanelLayout.setHorizontalGroup(
+            lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lihatSiswaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namaPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(alamatPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        lihatSiswaPanelLayout.setVerticalGroup(
+            lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lihatSiswaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nisPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(buttonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
+
+        javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
+        pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
+        pinjamBukuPanelLayout.setHorizontalGroup(
+            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        pinjamBukuPanelLayout.setVerticalGroup(
+            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
+
+        javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
+        kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
+        kembalikanBukuPanelLayout.setHorizontalGroup(
+            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        kembalikanBukuPanelLayout.setVerticalGroup(
+            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldCardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fieldCardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        cl.show(fieldCardPanel, "inputBukuCard");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void registerBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBukuButtonActionPerformed
+        String kode = kodeField.getText();
+        String judul = judulField.getText();
+        String jenis = jenisField.getText();
+        
+        if(kode.equals("") || judul.equals("") || jenis.equals("")){
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
+        } else{
+            Buku buku = new Buku(kode, judul, jenis);
+            Perpustakaan.simpan("\\src\\main\\resources\\Buku.txt", buku.toString());
+            JOptionPane.showMessageDialog(this, "Input buku berhasil!");
+            kodeField.setText("");
+            judulField.setText("");
+            jenisField.setText("");
+        }
+    }//GEN-LAST:event_registerBukuButtonActionPerformed
+
+    private void registerSiswaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButtonActionPerformed
+        String nis = nisField.getText();
+        String nama = namaField.getText();
+        String alamat = alamatField.getText();
+        
+        if(nis.equals("") || nama.equals("") || alamat.equals("")){
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
+        } else{
+            Siswa siswa = new Siswa(nis, nama, alamat);
+            Perpustakaan.simpan("\\src\\main\\resources\\siswa.txt", siswa.toString());
+            JOptionPane.showMessageDialog(this, "Input buku berhasil!");
+            nisField.setText("");
+            namaField.setText("");
+            alamatField.setText("");
+        }
+    }//GEN-LAST:event_registerSiswaButtonActionPerformed
+
+    private void inputSiswaButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSiswaButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputSiswaButton2ActionPerformed
+
+    private void inputSiswaButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSiswaButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputSiswaButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        cl.show(fieldCardPanel, "inputSiswaCard");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        cl.show(fieldCardPanel, "lihatBukuCard");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        cl.show(fieldCardPanel, "lihatSiswaCard");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        cl.show(fieldCardPanel, "pinjamBukuCard");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        cl.show(fieldCardPanel, "kembalikanBukuCard");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jenisFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jenisFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +790,64 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamatField;
+    private javax.swing.JTextField alamatField2;
+    private javax.swing.JTextField alamatField3;
+    private javax.swing.JLabel alamatLabel;
+    private javax.swing.JLabel alamatLabel2;
+    private javax.swing.JLabel alamatLabel3;
+    private javax.swing.JPanel alamatPanel;
+    private javax.swing.JPanel alamatPanel2;
+    private javax.swing.JPanel alamatPanel3;
+    private javax.swing.JPanel buttonPanel;
+    private javax.swing.JPanel buttonPanel1;
+    private javax.swing.JPanel buttonPanel2;
+    private javax.swing.JPanel buttonPanel3;
+    private javax.swing.JPanel buttonsPanel;
+    private javax.swing.JPanel fieldCardPanel;
+    private javax.swing.JPanel inputBukuPanel;
+    private javax.swing.JButton inputSiswaButton2;
+    private javax.swing.JButton inputSiswaButton3;
+    private javax.swing.JPanel inputSiswaPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jenisField;
+    private javax.swing.JLabel jenisLabel;
+    private javax.swing.JPanel jenisPanel;
+    private javax.swing.JTextField judulField;
+    private javax.swing.JLabel judulLabel;
+    private javax.swing.JPanel judulPanel;
+    private javax.swing.JPanel kembalikanBukuPanel;
+    private javax.swing.JTextField kodeField;
+    private javax.swing.JLabel kodeLabel;
+    private javax.swing.JPanel kodePanel;
+    private javax.swing.JPanel lihatBukuPanel;
+    private javax.swing.JPanel lihatSiswaPanel;
+    private javax.swing.JTextField namaField;
+    private javax.swing.JTextField namaField2;
+    private javax.swing.JTextField namaField3;
+    private javax.swing.JLabel namaLabel;
+    private javax.swing.JLabel namaLabel2;
+    private javax.swing.JLabel namaLabel3;
+    private javax.swing.JPanel namaPanel;
+    private javax.swing.JPanel namaPanel2;
+    private javax.swing.JPanel namaPanel3;
+    private javax.swing.JTextField nisField;
+    private javax.swing.JTextField nisField2;
+    private javax.swing.JTextField nisField3;
+    private javax.swing.JLabel nisLabel;
+    private javax.swing.JLabel nisLabel2;
+    private javax.swing.JLabel nisLabel3;
+    private javax.swing.JPanel nisPanel;
+    private javax.swing.JPanel nisPanel2;
+    private javax.swing.JPanel nisPanel3;
+    private javax.swing.JPanel pinjamBukuPanel;
+    private javax.swing.JButton registerBukuButton;
+    private javax.swing.JButton registerSiswaButton;
     // End of variables declaration//GEN-END:variables
 }

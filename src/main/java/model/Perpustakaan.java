@@ -1,3 +1,8 @@
+package model;
+
+import model.Transaksi;
+import model.Siswa;
+import model.Buku;
 import java.io.*;
 import java.util.*;
 
@@ -13,7 +18,7 @@ public class Perpustakaan {
         }
     }
 
-    static void simpan(String file, String data) {
+    public static void simpan(String file, String data) {
         try (FileWriter fw = new FileWriter(file, true)) {
             fw.write(data + "\n");
         } catch (IOException e) {

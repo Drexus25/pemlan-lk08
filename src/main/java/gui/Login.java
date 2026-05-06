@@ -170,6 +170,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nipFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nipFieldActionPerformed

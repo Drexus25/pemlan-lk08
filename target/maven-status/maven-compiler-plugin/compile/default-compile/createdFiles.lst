@@ -1,7 +1,9 @@
-Siswa.class
-Transaksi.class
-Buku.class
-Perpustakaan.class
+Main.class
+model\Siswa.class
 gui\Menu.class
-Pegawai.class
+model\Pegawai.class
+model\Perpustakaan.class
+model\Buku.class
+Main$1.class
 gui\Login.class
+model\Transaksi.class

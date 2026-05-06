@@ -1,3 +1,5 @@
+package model;
+
 public class Transaksi {
     String kode, nis, kodeBuku, tglPinjam, tglKembali;
     int status;

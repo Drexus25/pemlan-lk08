@@ -1,3 +1,5 @@
+package model;
+
 public class Pegawai {
     private String nip, nama;
  
