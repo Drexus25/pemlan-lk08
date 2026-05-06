@@ -1,9 +1,3 @@
-Main.class
-model\Siswa.class
-gui\Menu.class
-model\Pegawai.class
-model\Perpustakaan.class
-model\Buku.class
 Main$1.class
+Main.class
 gui\Login.class
-model\Transaksi.class

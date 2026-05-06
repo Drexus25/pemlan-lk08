@@ -70,10 +70,26 @@ public class Menu extends javax.swing.JFrame {
         registerSiswaButton = new javax.swing.JButton();
         lihatBukuPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        bukuTextArea = new javax.swing.JTextArea();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
+        siswaTextArea = new javax.swing.JTextArea();
         pinjamBukuPanel = new javax.swing.JPanel();
+        pinjamKodeField = new javax.swing.JTextField();
+        pinjamNisField = new javax.swing.JTextField();
+        pinjamKodeBukuField = new javax.swing.JTextField();
+        pinjamTglField = new javax.swing.JTextField();
+        pinjamButton = new javax.swing.JButton();
+        pinjamTransaksiLabel = new javax.swing.JLabel();
+        pinjamNisLabel = new javax.swing.JLabel();
+        pinjamBukuLabel = new javax.swing.JLabel();
+        pinjamTglLabel = new javax.swing.JLabel();
         kembalikanBukuPanel = new javax.swing.JPanel();
+        kembalikanKodeField = new javax.swing.JTextField();
+        kembalikanTglField = new javax.swing.JTextField();
+        kembalikanButton = new javax.swing.JButton();
+        kembalikanKodeLabel = new javax.swing.JLabel();
+        kembalikanTglLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,6 +157,16 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fieldCardPanel.setLayout(new java.awt.CardLayout());
+
+        bukuTextArea.setEditable(false);
+        bukuTextArea.setColumns(20);
+        bukuTextArea.setRows(5);
+        jScrollPane1.setViewportView(bukuTextArea);
+
+        siswaTextArea.setEditable(false);
+        siswaTextArea.setColumns(20);
+        siswaTextArea.setRows(5);
+        jScrollPane2.setViewportView(siswaTextArea);
 
         kodeLabel.setText("Kode");
 
@@ -412,28 +438,90 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
+        pinjamTransaksiLabel.setText("Kode Transaksi");
+        pinjamNisLabel.setText("NIS");
+        pinjamBukuLabel.setText("Kode Buku");
+        pinjamTglLabel.setText("Tanggal Pinjam");
+        pinjamButton.setText("Pinjam");
+        pinjamButton.addActionListener(this::pinjamButtonActionPerformed);
+
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pinjamTransaksiLabel)
+                    .addComponent(pinjamKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(pinjamNisLabel)
+                    .addComponent(pinjamNisField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(pinjamBukuLabel)
+                    .addComponent(pinjamKodeBukuField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(pinjamTglLabel)
+                    .addComponent(pinjamTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(pinjamButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pinjamTransaksiLabel)
+                .addGap(5, 5, 5)
+                .addComponent(pinjamKodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pinjamNisLabel)
+                .addGap(5, 5, 5)
+                .addComponent(pinjamNisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pinjamBukuLabel)
+                .addGap(5, 5, 5)
+                .addComponent(pinjamKodeBukuField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pinjamTglLabel)
+                .addGap(5, 5, 5)
+                .addComponent(pinjamTglField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(pinjamButton)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
+
+        kembalikanKodeLabel.setText("Kode Transaksi");
+        kembalikanTglLabel.setText("Tanggal Kembali");
+        kembalikanButton.setText("Kembalikan");
+        kembalikanButton.addActionListener(this::kembalikanButtonActionPerformed);
 
         javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
         kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
         kembalikanBukuPanelLayout.setHorizontalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kembalikanKodeLabel)
+                    .addComponent(kembalikanKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(kembalikanTglLabel)
+                    .addComponent(kembalikanTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(kembalikanButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         kembalikanBukuPanelLayout.setVerticalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kembalikanKodeLabel)
+                .addGap(5, 5, 5)
+                .addComponent(kembalikanKodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(kembalikanTglLabel)
+                .addGap(5, 5, 5)
+                .addComponent(kembalikanTglField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(kembalikanButton)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
@@ -482,8 +570,7 @@ public class Menu extends javax.swing.JFrame {
         if(kode.equals("") || judul.equals("") || jenis.equals("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
-            Buku buku = new Buku(kode, judul, jenis);
-            Perpustakaan.simpan("\\src\\main\\resources\\Buku.txt", buku.toString());
+            Perpustakaan.inputBuku(kode, judul, jenis);
             JOptionPane.showMessageDialog(this, "Input buku berhasil!");
             kodeField.setText("");
             judulField.setText("");
@@ -512,20 +599,60 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        bukuTextArea.setText(Perpustakaan.baca("buku.txt"));
         cl.show(fieldCardPanel, "lihatBukuCard");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        siswaTextArea.setText(Perpustakaan.baca("siswa.txt"));
         cl.show(fieldCardPanel, "lihatSiswaCard");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        pinjamKodeField.setText("");
+        pinjamNisField.setText("");
+        pinjamKodeBukuField.setText("");
+        pinjamTglField.setText("");
         cl.show(fieldCardPanel, "pinjamBukuCard");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        kembalikanKodeField.setText("");
+        kembalikanTglField.setText("");
         cl.show(fieldCardPanel, "kembalikanBukuCard");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void pinjamButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String kode = pinjamKodeField.getText();
+        String nis = pinjamNisField.getText();
+        String kodeBuku = pinjamKodeBukuField.getText();
+        String tglPinjam = pinjamTglField.getText();
+
+        if (kode.isEmpty() || nis.isEmpty() || kodeBuku.isEmpty() || tglPinjam.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
+        } else {
+            String result = Perpustakaan.pinjamBuku(kode, nis, kodeBuku, tglPinjam);
+            JOptionPane.showMessageDialog(this, result);
+            pinjamKodeField.setText("");
+            pinjamNisField.setText("");
+            pinjamKodeBukuField.setText("");
+            pinjamTglField.setText("");
+        }
+    }
+
+    private void kembalikanButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String kode = kembalikanKodeField.getText();
+        String tglKembali = kembalikanTglField.getText();
+
+        if (kode.isEmpty() || tglKembali.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
+        } else {
+            String result = Perpustakaan.kembalikanBuku(kode, tglKembali);
+            JOptionPane.showMessageDialog(this, result);
+            kembalikanKodeField.setText("");
+            kembalikanTglField.setText("");
+        }
+    }
 
     private void jenisFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisFieldActionPerformed
         // TODO add your handling code here:
@@ -575,6 +702,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea bukuTextArea;
+    private javax.swing.JTextArea siswaTextArea;
     private javax.swing.JTextField jenisField;
     private javax.swing.JLabel jenisLabel;
     private javax.swing.JPanel jenisPanel;
@@ -594,6 +723,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel nisLabel;
     private javax.swing.JPanel nisPanel;
     private javax.swing.JPanel pinjamBukuPanel;
+    private javax.swing.JTextField pinjamKodeField;
+    private javax.swing.JTextField pinjamNisField;
+    private javax.swing.JTextField pinjamKodeBukuField;
+    private javax.swing.JTextField pinjamTglField;
+    private javax.swing.JButton pinjamButton;
+    private javax.swing.JLabel pinjamTransaksiLabel;
+    private javax.swing.JLabel pinjamNisLabel;
+    private javax.swing.JLabel pinjamBukuLabel;
+    private javax.swing.JLabel pinjamTglLabel;
+    private javax.swing.JTextField kembalikanKodeField;
+    private javax.swing.JTextField kembalikanTglField;
+    private javax.swing.JButton kembalikanButton;
+    private javax.swing.JLabel kembalikanKodeLabel;
+    private javax.swing.JLabel kembalikanTglLabel;
     private javax.swing.JButton registerBukuButton;
     private javax.swing.JButton registerSiswaButton;
     // End of variables declaration//GEN-END:variables

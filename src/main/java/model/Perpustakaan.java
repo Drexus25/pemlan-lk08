@@ -4,10 +4,16 @@ import model.Transaksi;
 import model.Siswa;
 import model.Buku;
 import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
 public class Perpustakaan {
     static Scanner input = new Scanner(System.in);
+    private static final Path DATA_DIR = Paths.get(System.getProperty("user.dir"), "src", "main", "resources");
+
+    private static Path dataFile(String file) {
+        return DATA_DIR.resolve(file);
+    }
 
     static boolean login(String nip, String nama) {
         if (nip.equals("123") && nama.equals("admin")) {
@@ -19,15 +25,18 @@ public class Perpustakaan {
     }
 
     public static void simpan(String file, String data) {
-        try (FileWriter fw = new FileWriter(file, true)) {
-            fw.write(data + "\n");
+        try {
+            Files.createDirectories(DATA_DIR);
+            try (FileWriter fw = new FileWriter(dataFile(file).toString(), true)) {
+                fw.write(data + "\n");
+            }
         } catch (IOException e) {
             System.out.println("Error simpan file: " + e.getMessage());
         }
     }
 
     static void tampil(String file) {
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataFile(file).toString()))) {
             String line;
 
             while ((line = br.readLine()) != null) {
@@ -39,54 +48,35 @@ public class Perpustakaan {
         }
     }
 
-    public static void inputSiswa(String nis, String nama, String alamat) {
-       
-        Siswa s = new Siswa(nis, nama, alamat);
-        simpan("siswa.txt", s.toString());
+    public static String baca(String file) {
+        Path path = dataFile(file);
+        if (!Files.exists(path)) {
+            return "";
+        }
+
+        try {
+            return Files.readString(path);
+        } catch (IOException e) {
+            System.out.println("Error baca file: " + e.getMessage());
+            return "";
+        }
     }
 
-    static void inputBuku() {
-        System.out.print("Kode: ");
-        String kode = input.nextLine();
-
-        System.out.print("Judul: ");
-        String judul = input.nextLine();
-
-        System.out.print("Jenis: ");
-        String jenis = input.nextLine();
-
-        Buku b = new Buku(kode, judul, jenis);
-        simpan("buku.txt", b.toString());
+    public static String pinjamBuku(String kode, String nis, String kodeBuku, String tglPinjam) {
+        try {
+            Transaksi t = new Transaksi(kode, nis, kodeBuku, tglPinjam, "-", 0);
+            simpan("transaksi.txt", t.toString());
+            return "Peminjaman berhasil!";
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
     }
 
-    static void pinjam() {
-        System.out.print("Kode Transaksi: ");
-        String kode = input.nextLine();
-
-        System.out.print("NIS: ");
-        String nis = input.nextLine();
-
-        System.out.print("Kode Buku: ");
-        String kodeBuku = input.nextLine();
-
-        System.out.print("Tanggal Pinjam: ");
-        String tglPinjam = input.nextLine();
-
-        Transaksi t = new Transaksi(kode, nis, kodeBuku, tglPinjam, "-", 0);
-        simpan("transaksi.txt", t.toString());
-    }
-
-    static void kembali() {
-        System.out.print("Kode Transaksi: ");
-        String kodeCari = input.nextLine();
-
-        System.out.print("Tanggal Kembali: ");
-        String tglKembali = input.nextLine();
-
+    public static String kembalikanBuku(String kodeCari, String tglKembali) {
         List<String> dataBaru = new ArrayList<>();
         boolean ditemukan = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("transaksi.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataFile("transaksi.txt").toString()))) {
             String line;
 
             while ((line = br.readLine()) != null) {
@@ -96,9 +86,7 @@ public class Perpustakaan {
                     ditemukan = true;
 
                     if (data[5].equals("1")) {
-                        System.out.println("Buku sudah dikembalikan!");
-                        dataBaru.add(line);
-                        continue;
+                        return "Buku sudah dikembalikan!";
                     }
 
                     data[4] = tglKembali;
@@ -106,30 +94,39 @@ public class Perpustakaan {
 
                     String hasil = String.join(" - ", data);
                     dataBaru.add(hasil);
-
-                    System.out.println("Pengembalian berhasil!");
                 } else {
                     dataBaru.add(line);
                 }
             }
 
         } catch (IOException e) {
-            System.out.println("Error baca file: " + e.getMessage());
-            return;
+            return "Error baca file: " + e.getMessage();
         }
 
         if (!ditemukan) {
-            System.out.println("Transaksi tidak ditemukan!");
-            return;
+            return "Transaksi tidak ditemukan!";
         }
 
-        try (FileWriter fw = new FileWriter("transaksi.txt")) {
+        try (FileWriter fw = new FileWriter(dataFile("transaksi.txt").toString())) {
             for (String s : dataBaru) {
                 fw.write(s + "\n");
             }
         } catch (IOException e) {
-            System.out.println("Error tulis file: " + e.getMessage());
+            return "Error tulis file: " + e.getMessage();
         }
+
+        return "Pengembalian berhasil!";
+    }
+
+    public static void inputSiswa(String nis, String nama, String alamat) {
+       
+        Siswa s = new Siswa(nis, nama, alamat);
+        simpan("siswa.txt", s.toString());
+    }
+
+    public static void inputBuku(String kode, String judul, String jenis) {
+        Buku b = new Buku(kode, judul, jenis);
+        simpan("buku.txt", b.toString());
     }
 
     public static void main(String[] args) {
