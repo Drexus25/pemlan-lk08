@@ -5,7 +5,12 @@
 package gui;
 
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Buku;
 import model.Perpustakaan;
 import model.Siswa;
@@ -56,6 +61,9 @@ public class Menu extends javax.swing.JFrame {
         jenisField = new javax.swing.JTextField();
         buttonPanel = new javax.swing.JPanel();
         registerBukuButton = new javax.swing.JButton();
+        lihatBukuPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bukuTable = new javax.swing.JTable();
         inputSiswaPanel = new javax.swing.JPanel();
         nisPanel = new javax.swing.JPanel();
         nisField = new javax.swing.JTextField();
@@ -68,68 +76,9 @@ public class Menu extends javax.swing.JFrame {
         alamatField = new javax.swing.JTextField();
         buttonPanel1 = new javax.swing.JPanel();
         registerSiswaButton = new javax.swing.JButton();
-        lihatBukuPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pinjamBukuPanel = new javax.swing.JPanel();
-        kembalikanBukuPanel = new javax.swing.JPanel();
-<<<<<<< HEAD
-        kembalikanKodeField = new javax.swing.JTextField();
-        kembalikanTglField = new javax.swing.JTextField();
-        kembalikanButton = new javax.swing.JButton();
-        kembalikanKodeLabel = new javax.swing.JLabel();
-        kembalikanTglLabel = new javax.swing.JLabel();
-        kodeTransaksiPanel = new javax.swing.JPanel();
-        kodeTransaksiField = new javax.swing.JTextField();
-        kodeTransaksiLabel = new javax.swing.JLabel();
-        nisPinjamPanel = new javax.swing.JPanel();
-        nisPinjamField = new javax.swing.JTextField();
-        nisPinjamLabel = new javax.swing.JLabel();
-        kodeBukuPinjamPanel = new javax.swing.JPanel();
-        kodeBukuPinjamLabel = new javax.swing.JLabel();
-        kodeBukuPinjamField = new javax.swing.JTextField();
-        dateMonthYearBorrowPanel = new javax.swing.JPanel();
-        dateBorrowPanel = new javax.swing.JPanel();
-        dateLabel = new javax.swing.JLabel();
-        dateBorrowField = new javax.swing.JTextField();
-        monthBorrowPanel = new javax.swing.JPanel();
-        monthLabel = new javax.swing.JLabel();
-        monthBorrowField = new javax.swing.JTextField();
-        yearBorrowPanel = new javax.swing.JPanel();
-        dateLabel2 = new javax.swing.JLabel();
-        yearBorrowField = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        dateMonthYearBorrowPanel1 = new javax.swing.JPanel();
-        dateBorrowPanel1 = new javax.swing.JPanel();
-        dateLabel1 = new javax.swing.JLabel();
-        dateReturnField = new javax.swing.JTextField();
-        monthBorrowPanel1 = new javax.swing.JPanel();
-        monthLabel1 = new javax.swing.JLabel();
-        monthReturnField = new javax.swing.JTextField();
-        yearBorrowPanel1 = new javax.swing.JPanel();
-        dateLabel3 = new javax.swing.JLabel();
-        yearReturnField = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        buttonPanel2 = new javax.swing.JPanel();
-        registerSiswaButton1 = new javax.swing.JButton();
-        kembalikanBukuPanel = new javax.swing.JPanel();
-        kodeTransaksiPanel1 = new javax.swing.JPanel();
-        kodeTransaksiField1 = new javax.swing.JTextField();
-        kodeTransaksiLabel1 = new javax.swing.JLabel();
-        nisPinjamPanel1 = new javax.swing.JPanel();
-        nisPinjamField1 = new javax.swing.JTextField();
-        nisPinjamLabel1 = new javax.swing.JLabel();
-        kodeBukuPinjamPanel1 = new javax.swing.JPanel();
-        kodeBukuPinjamLabel1 = new javax.swing.JLabel();
-        kodeBukuPinjamField1 = new javax.swing.JTextField();
-        buttonPanel3 = new javax.swing.JPanel();
-        registerSiswaButton2 = new javax.swing.JButton();
-        kembalikanBukuPanel = new javax.swing.JPanel();
-=======
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,7 +192,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(judulLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(judulField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         jenisLabel.setText("Jenis");
@@ -280,7 +229,7 @@ public class Menu extends javax.swing.JFrame {
         buttonPanelLayout.setHorizontalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(385, Short.MAX_VALUE)
+                .addContainerGap(362, Short.MAX_VALUE)
                 .addComponent(registerBukuButton)
                 .addContainerGap())
         );
@@ -311,12 +260,53 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(judulPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jenisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         fieldCardPanel.add(inputBukuPanel, "inputBukuCard");
+
+        bukuTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Kode Buku", "Judul", "Jenis"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(bukuTable);
+
+        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
+        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
+        lihatBukuPanelLayout.setHorizontalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+        lihatBukuPanelLayout.setVerticalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
 
         nisLabel.setText("NIS");
 
@@ -350,7 +340,7 @@ public class Menu extends javax.swing.JFrame {
             namaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(namaPanelLayout.createSequentialGroup()
                 .addGroup(namaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(namaField, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                    .addComponent(namaField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                     .addGroup(namaPanelLayout.createSequentialGroup()
                         .addComponent(namaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -429,564 +419,38 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(namaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alamatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(buttonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         fieldCardPanel.add(inputSiswaPanel, "inputSiswaCard");
 
-        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
-        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
-        lihatBukuPanelLayout.setHorizontalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        lihatBukuPanelLayout.setVerticalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lihatBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
-
         javax.swing.GroupLayout lihatSiswaPanelLayout = new javax.swing.GroupLayout(lihatSiswaPanel);
         lihatSiswaPanel.setLayout(lihatSiswaPanelLayout);
         lihatSiswaPanelLayout.setHorizontalGroup(
             lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
         );
         lihatSiswaPanelLayout.setVerticalGroup(
             lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
-<<<<<<< HEAD
-
-        pinjamTransaksiLabel.setText("Kode Transaksi");
-        pinjamNisLabel.setText("NIS");
-        pinjamBukuLabel.setText("Kode Buku");
-        pinjamTglLabel.setText("Tanggal Pinjam");
-        pinjamButton.setText("Pinjam");
-        pinjamButton.addActionListener(this::pinjamButtonActionPerformed);
-        kodeTransaksiLabel.setText("Kode Transaksi");
-
-        javax.swing.GroupLayout kodeTransaksiPanelLayout = new javax.swing.GroupLayout(kodeTransaksiPanel);
-        kodeTransaksiPanel.setLayout(kodeTransaksiPanelLayout);
-        kodeTransaksiPanelLayout.setHorizontalGroup(
-            kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kodeTransaksiPanelLayout.createSequentialGroup()
-                .addGroup(kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kodeTransaksiField)
-                    .addGroup(kodeTransaksiPanelLayout.createSequentialGroup()
-                        .addComponent(kodeTransaksiLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        kodeTransaksiPanelLayout.setVerticalGroup(
-            kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeTransaksiPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kodeTransaksiLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kodeTransaksiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
-
-        nisPinjamLabel.setText("NIS");
-
-        javax.swing.GroupLayout nisPinjamPanelLayout = new javax.swing.GroupLayout(nisPinjamPanel);
-        nisPinjamPanel.setLayout(nisPinjamPanelLayout);
-        nisPinjamPanelLayout.setHorizontalGroup(
-            nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nisPinjamPanelLayout.createSequentialGroup()
-                .addGroup(nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nisPinjamField)
-                    .addGroup(nisPinjamPanelLayout.createSequentialGroup()
-                        .addComponent(nisPinjamLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        nisPinjamPanelLayout.setVerticalGroup(
-            nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPinjamPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nisPinjamLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nisPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        kodeBukuPinjamLabel.setText("Kode Buku");
-
-        javax.swing.GroupLayout kodeBukuPinjamPanelLayout = new javax.swing.GroupLayout(kodeBukuPinjamPanel);
-        kodeBukuPinjamPanel.setLayout(kodeBukuPinjamPanelLayout);
-        kodeBukuPinjamPanelLayout.setHorizontalGroup(
-            kodeBukuPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kodeBukuPinjamPanelLayout.createSequentialGroup()
-                .addGroup(kodeBukuPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kodeBukuPinjamField, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
-                    .addGroup(kodeBukuPinjamPanelLayout.createSequentialGroup()
-                        .addComponent(kodeBukuPinjamLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        kodeBukuPinjamPanelLayout.setVerticalGroup(
-            kodeBukuPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeBukuPinjamPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kodeBukuPinjamLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kodeBukuPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        dateLabel.setText("Tanggal");
-
-        javax.swing.GroupLayout dateBorrowPanelLayout = new javax.swing.GroupLayout(dateBorrowPanel);
-        dateBorrowPanel.setLayout(dateBorrowPanelLayout);
-        dateBorrowPanelLayout.setHorizontalGroup(
-            dateBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(dateBorrowField)
-        );
-        dateBorrowPanelLayout.setVerticalGroup(
-            dateBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dateBorrowPanelLayout.createSequentialGroup()
-                .addComponent(dateLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dateBorrowField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        monthLabel.setText("Bulan");
-
-        javax.swing.GroupLayout monthBorrowPanelLayout = new javax.swing.GroupLayout(monthBorrowPanel);
-        monthBorrowPanel.setLayout(monthBorrowPanelLayout);
-        monthBorrowPanelLayout.setHorizontalGroup(
-            monthBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(monthLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(monthBorrowField)
-        );
-        monthBorrowPanelLayout.setVerticalGroup(
-            monthBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(monthBorrowPanelLayout.createSequentialGroup()
-                .addComponent(monthLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monthBorrowField)
-                .addContainerGap())
-        );
-
-        dateLabel2.setText("Tahun");
-
-        yearBorrowField.addActionListener(this::yearBorrowFieldActionPerformed);
-
-        javax.swing.GroupLayout yearBorrowPanelLayout = new javax.swing.GroupLayout(yearBorrowPanel);
-        yearBorrowPanel.setLayout(yearBorrowPanelLayout);
-        yearBorrowPanelLayout.setHorizontalGroup(
-            yearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dateLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(yearBorrowField)
-        );
-        yearBorrowPanelLayout.setVerticalGroup(
-            yearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(yearBorrowPanelLayout.createSequentialGroup()
-                .addComponent(dateLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(yearBorrowField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jLabel1.setText("Tanggal Peminjaman");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout dateMonthYearBorrowPanelLayout = new javax.swing.GroupLayout(dateMonthYearBorrowPanel);
-        dateMonthYearBorrowPanel.setLayout(dateMonthYearBorrowPanelLayout);
-        dateMonthYearBorrowPanelLayout.setHorizontalGroup(
-            dateMonthYearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dateMonthYearBorrowPanelLayout.createSequentialGroup()
-                .addComponent(dateBorrowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monthBorrowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yearBorrowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        dateMonthYearBorrowPanelLayout.setVerticalGroup(
-            dateMonthYearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dateMonthYearBorrowPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dateMonthYearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateBorrowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dateMonthYearBorrowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(yearBorrowPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(monthBorrowPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        dateLabel1.setText("Tanggal");
-
-        javax.swing.GroupLayout dateBorrowPanel1Layout = new javax.swing.GroupLayout(dateBorrowPanel1);
-        dateBorrowPanel1.setLayout(dateBorrowPanel1Layout);
-        dateBorrowPanel1Layout.setHorizontalGroup(
-            dateBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dateLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(dateReturnField)
-        );
-        dateBorrowPanel1Layout.setVerticalGroup(
-            dateBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dateBorrowPanel1Layout.createSequentialGroup()
-                .addComponent(dateLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dateReturnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        monthLabel1.setText("Bulan");
-
-        javax.swing.GroupLayout monthBorrowPanel1Layout = new javax.swing.GroupLayout(monthBorrowPanel1);
-        monthBorrowPanel1.setLayout(monthBorrowPanel1Layout);
-        monthBorrowPanel1Layout.setHorizontalGroup(
-            monthBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(monthLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(monthReturnField)
-        );
-        monthBorrowPanel1Layout.setVerticalGroup(
-            monthBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(monthBorrowPanel1Layout.createSequentialGroup()
-                .addComponent(monthLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monthReturnField)
-                .addContainerGap())
-        );
-
-        dateLabel3.setText("Tahun");
-
-        javax.swing.GroupLayout yearBorrowPanel1Layout = new javax.swing.GroupLayout(yearBorrowPanel1);
-        yearBorrowPanel1.setLayout(yearBorrowPanel1Layout);
-        yearBorrowPanel1Layout.setHorizontalGroup(
-            yearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dateLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(yearReturnField)
-        );
-        yearBorrowPanel1Layout.setVerticalGroup(
-            yearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(yearBorrowPanel1Layout.createSequentialGroup()
-                .addComponent(dateLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yearReturnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        jLabel2.setText("Tanggal Pengembalian");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout dateMonthYearBorrowPanel1Layout = new javax.swing.GroupLayout(dateMonthYearBorrowPanel1);
-        dateMonthYearBorrowPanel1.setLayout(dateMonthYearBorrowPanel1Layout);
-        dateMonthYearBorrowPanel1Layout.setHorizontalGroup(
-            dateMonthYearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dateMonthYearBorrowPanel1Layout.createSequentialGroup()
-                .addComponent(dateBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monthBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yearBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        dateMonthYearBorrowPanel1Layout.setVerticalGroup(
-            dateMonthYearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dateMonthYearBorrowPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(dateMonthYearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dateMonthYearBorrowPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(yearBorrowPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(monthBorrowPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        registerSiswaButton1.setText("Pinjam");
-        registerSiswaButton1.addActionListener(this::registerSiswaButton1ActionPerformed);
-
-        javax.swing.GroupLayout buttonPanel2Layout = new javax.swing.GroupLayout(buttonPanel2);
-        buttonPanel2.setLayout(buttonPanel2Layout);
-        buttonPanel2Layout.setHorizontalGroup(
-            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerSiswaButton1)
-                .addContainerGap())
-        );
-        buttonPanel2Layout.setVerticalGroup(
-            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerSiswaButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-=======
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pinjamTransaksiLabel)
-                    .addComponent(pinjamKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(pinjamNisLabel)
-                    .addComponent(pinjamNisField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(pinjamBukuLabel)
-                    .addComponent(pinjamKodeBukuField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(pinjamTglLabel)
-                    .addComponent(pinjamTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(pinjamButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nisPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kodeBukuPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
-                        .addComponent(dateMonthYearBorrowPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dateMonthYearBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        pinjamBukuPanelLayout.setVerticalGroup(
-            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pinjamTransaksiLabel)
-                .addGap(5, 5, 5)
-                .addComponent(pinjamKodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(pinjamNisLabel)
-                .addGap(5, 5, 5)
-                .addComponent(pinjamNisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(pinjamBukuLabel)
-                .addGap(5, 5, 5)
-                .addComponent(pinjamKodeBukuField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(pinjamTglLabel)
-                .addGap(5, 5, 5)
-                .addComponent(pinjamTglField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(pinjamButton)
-                .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pinjamBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nisPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kodeBukuPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateMonthYearBorrowPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateMonthYearBorrowPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGap(0, 452, Short.MAX_VALUE)
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-=======
-            .addGap(0, 452, Short.MAX_VALUE)
-        );
-        pinjamBukuPanelLayout.setVerticalGroup(
-            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
             .addGap(0, 350, Short.MAX_VALUE)
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
-
-<<<<<<< HEAD
-        kembalikanKodeLabel.setText("Kode Transaksi");
-        kembalikanTglLabel.setText("Tanggal Kembali");
-        kembalikanButton.setText("Kembalikan");
-        kembalikanButton.addActionListener(this::kembalikanButtonActionPerformed);
-        kodeTransaksiLabel1.setText("Kode Transaksi");
-
-        javax.swing.GroupLayout kodeTransaksiPanel1Layout = new javax.swing.GroupLayout(kodeTransaksiPanel1);
-        kodeTransaksiPanel1.setLayout(kodeTransaksiPanel1Layout);
-        kodeTransaksiPanel1Layout.setHorizontalGroup(
-            kodeTransaksiPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kodeTransaksiPanel1Layout.createSequentialGroup()
-                .addGroup(kodeTransaksiPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kodeTransaksiField1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
-                    .addGroup(kodeTransaksiPanel1Layout.createSequentialGroup()
-                        .addComponent(kodeTransaksiLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        kodeTransaksiPanel1Layout.setVerticalGroup(
-            kodeTransaksiPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeTransaksiPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kodeTransaksiLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kodeTransaksiField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
-
-        nisPinjamLabel1.setText("Nama");
-
-        javax.swing.GroupLayout nisPinjamPanel1Layout = new javax.swing.GroupLayout(nisPinjamPanel1);
-        nisPinjamPanel1.setLayout(nisPinjamPanel1Layout);
-        nisPinjamPanel1Layout.setHorizontalGroup(
-            nisPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nisPinjamPanel1Layout.createSequentialGroup()
-                .addGroup(nisPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nisPinjamField1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
-                    .addGroup(nisPinjamPanel1Layout.createSequentialGroup()
-                        .addComponent(nisPinjamLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        nisPinjamPanel1Layout.setVerticalGroup(
-            nisPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPinjamPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nisPinjamLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nisPinjamField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        kodeBukuPinjamLabel1.setText("Alamat");
-
-        javax.swing.GroupLayout kodeBukuPinjamPanel1Layout = new javax.swing.GroupLayout(kodeBukuPinjamPanel1);
-        kodeBukuPinjamPanel1.setLayout(kodeBukuPinjamPanel1Layout);
-        kodeBukuPinjamPanel1Layout.setHorizontalGroup(
-            kodeBukuPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kodeBukuPinjamPanel1Layout.createSequentialGroup()
-                .addGroup(kodeBukuPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kodeBukuPinjamPanel1Layout.createSequentialGroup()
-                        .addComponent(kodeBukuPinjamLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(kodeBukuPinjamField1))
-                .addContainerGap())
-        );
-        kodeBukuPinjamPanel1Layout.setVerticalGroup(
-            kodeBukuPinjamPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeBukuPinjamPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kodeBukuPinjamLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kodeBukuPinjamField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        registerSiswaButton2.setText("Pinjam");
-        registerSiswaButton2.addActionListener(this::registerSiswaButton2ActionPerformed);
-
-        javax.swing.GroupLayout buttonPanel3Layout = new javax.swing.GroupLayout(buttonPanel3);
-        buttonPanel3.setLayout(buttonPanel3Layout);
-        buttonPanel3Layout.setHorizontalGroup(
-            buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerSiswaButton2)
-                .addContainerGap())
-        );
-        buttonPanel3Layout.setVerticalGroup(
-            buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerSiswaButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-=======
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
-        javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
-        kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
-        kembalikanBukuPanelLayout.setHorizontalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kembalikanKodeLabel)
-                    .addComponent(kembalikanKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(kembalikanTglLabel)
-                    .addComponent(kembalikanTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(kembalikanButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(kodeTransaksiPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nisPinjamPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kodeBukuPinjamPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        kembalikanBukuPanelLayout.setVerticalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kembalikanKodeLabel)
-                .addGap(5, 5, 5)
-                .addComponent(kembalikanKodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(kembalikanTglLabel)
-                .addGap(5, 5, 5)
-                .addComponent(kembalikanTglField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(kembalikanButton)
-                .addContainerGap(200, Short.MAX_VALUE))
-                .addComponent(kodeTransaksiPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nisPinjamPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kodeBukuPinjamPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                .addComponent(buttonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGap(0, 452, Short.MAX_VALUE)
-        );
-        kembalikanBukuPanelLayout.setVerticalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-=======
-            .addGap(0, 452, Short.MAX_VALUE)
-        );
-        kembalikanBukuPanelLayout.setVerticalGroup(
-            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-
-        fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1011,7 +475,7 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fieldCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 358, Short.MAX_VALUE))
+                    .addComponent(fieldCardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1020,7 +484,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           cl.show(fieldCardPanel, "inputBukuCard");
+        
+        cl.show(fieldCardPanel, "inputBukuCard");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void registerBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBukuButtonActionPerformed
@@ -1061,6 +526,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel dtm = (DefaultTableModel) bukuTable.getModel();
+        dtm.setRowCount(0);
+        String filePath = "src/main/resources/siswa.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while((line = br.readLine()) != null){
+                String[] data = line.split(" - ");
+                dtm.addRow(data);
+            }
+        } catch (FileNotFoundException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        } catch (IOException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
         cl.show(fieldCardPanel, "lihatBukuCard");
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1079,24 +558,6 @@ public class Menu extends javax.swing.JFrame {
     private void jenisFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jenisFieldActionPerformed
-
-    private void registerSiswaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButton1ActionPerformed
-        String kodeTransaksi = kodeTransaksiField.getText();
-        String nis = nisPinjamField.getText();
-        String kodeBuku = kodeBukuPinjamField.getText();
-        
-    }//GEN-LAST:event_registerSiswaButton1ActionPerformed
-
-    private void registerSiswaButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButton2ActionPerformed
-        String kodeTransaksi = kodeTransaksiField.getText();
-        String nama = namaField.getText();
-        String alamat = alamatField.getText();
-
-    }//GEN-LAST:event_registerSiswaButton2ActionPerformed
-
-    private void yearBorrowFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBorrowFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yearBorrowFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1127,21 +588,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField alamatField;
     private javax.swing.JLabel alamatLabel;
     private javax.swing.JPanel alamatPanel;
+    private javax.swing.JTable bukuTable;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JPanel buttonPanel1;
-    private javax.swing.JPanel buttonPanel2;
-    private javax.swing.JPanel buttonPanel3;
     private javax.swing.JPanel buttonsPanel;
-    private javax.swing.JTextField dateBorrowField;
-    private javax.swing.JPanel dateBorrowPanel;
-    private javax.swing.JPanel dateBorrowPanel1;
-    private javax.swing.JLabel dateLabel;
-    private javax.swing.JLabel dateLabel1;
-    private javax.swing.JLabel dateLabel2;
-    private javax.swing.JLabel dateLabel3;
-    private javax.swing.JPanel dateMonthYearBorrowPanel;
-    private javax.swing.JPanel dateMonthYearBorrowPanel1;
-    private javax.swing.JTextField dateReturnField;
     private javax.swing.JPanel fieldCardPanel;
     private javax.swing.JPanel inputBukuPanel;
     private javax.swing.JPanel inputSiswaPanel;
@@ -1151,11 +601,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jenisField;
@@ -1164,50 +610,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField judulField;
     private javax.swing.JLabel judulLabel;
     private javax.swing.JPanel judulPanel;
-    private javax.swing.JPanel kembalikanBukuPanel;
-    private javax.swing.JTextField kodeBukuPinjamField;
-    private javax.swing.JTextField kodeBukuPinjamField1;
-    private javax.swing.JLabel kodeBukuPinjamLabel;
-    private javax.swing.JLabel kodeBukuPinjamLabel1;
-    private javax.swing.JPanel kodeBukuPinjamPanel;
-    private javax.swing.JPanel kodeBukuPinjamPanel1;
     private javax.swing.JTextField kodeField;
     private javax.swing.JLabel kodeLabel;
     private javax.swing.JPanel kodePanel;
-    private javax.swing.JTextField kodeTransaksiField;
-    private javax.swing.JTextField kodeTransaksiField1;
-    private javax.swing.JLabel kodeTransaksiLabel;
-    private javax.swing.JLabel kodeTransaksiLabel1;
-    private javax.swing.JPanel kodeTransaksiPanel;
-    private javax.swing.JPanel kodeTransaksiPanel1;
     private javax.swing.JPanel lihatBukuPanel;
     private javax.swing.JPanel lihatSiswaPanel;
-    private javax.swing.JTextField monthBorrowField;
-    private javax.swing.JPanel monthBorrowPanel;
-    private javax.swing.JPanel monthBorrowPanel1;
-    private javax.swing.JLabel monthLabel;
-    private javax.swing.JLabel monthLabel1;
-    private javax.swing.JTextField monthReturnField;
     private javax.swing.JTextField namaField;
     private javax.swing.JLabel namaLabel;
     private javax.swing.JPanel namaPanel;
     private javax.swing.JTextField nisField;
     private javax.swing.JLabel nisLabel;
     private javax.swing.JPanel nisPanel;
-    private javax.swing.JTextField nisPinjamField;
-    private javax.swing.JTextField nisPinjamField1;
-    private javax.swing.JLabel nisPinjamLabel;
-    private javax.swing.JLabel nisPinjamLabel1;
-    private javax.swing.JPanel nisPinjamPanel;
-    private javax.swing.JPanel nisPinjamPanel1;
     private javax.swing.JPanel pinjamBukuPanel;
     private javax.swing.JButton registerBukuButton;
     private javax.swing.JButton registerSiswaButton;
-    private javax.swing.JButton registerSiswaButton1;
-    private javax.swing.JButton registerSiswaButton2;
-    private javax.swing.JTextField yearBorrowField;
-    private javax.swing.JPanel yearBorrowPanel;
-    private javax.swing.JPanel yearBorrowPanel1;
-    private javax.swing.JTextField yearReturnField;
     // End of variables declaration//GEN-END:variables
 }
