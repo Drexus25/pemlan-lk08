@@ -70,11 +70,10 @@ public class Menu extends javax.swing.JFrame {
         registerSiswaButton = new javax.swing.JButton();
         lihatBukuPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        bukuTextArea = new javax.swing.JTextArea();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        siswaTextArea = new javax.swing.JTextArea();
         pinjamBukuPanel = new javax.swing.JPanel();
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         pinjamKodeField = new javax.swing.JTextField();
         pinjamNisField = new javax.swing.JTextField();
@@ -140,6 +139,9 @@ public class Menu extends javax.swing.JFrame {
         buttonPanel3 = new javax.swing.JPanel();
         registerSiswaButton2 = new javax.swing.JButton();
 >>>>>>> Stashed changes
+=======
+        kembalikanBukuPanel = new javax.swing.JPanel();
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -207,16 +209,6 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fieldCardPanel.setLayout(new java.awt.CardLayout());
-
-        bukuTextArea.setEditable(false);
-        bukuTextArea.setColumns(20);
-        bukuTextArea.setRows(5);
-        jScrollPane1.setViewportView(bukuTextArea);
-
-        siswaTextArea.setEditable(false);
-        siswaTextArea.setColumns(20);
-        siswaTextArea.setRows(5);
-        jScrollPane2.setViewportView(siswaTextArea);
 
         kodeLabel.setText("Kode");
 
@@ -488,6 +480,7 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         pinjamTransaksiLabel.setText("Kode Transaksi");
         pinjamNisLabel.setText("NIS");
@@ -778,10 +771,13 @@ public class Menu extends javax.swing.JFrame {
         );
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,10 +843,18 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
 >>>>>>> Stashed changes
+=======
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        pinjamBukuPanelLayout.setVerticalGroup(
+            pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         kembalikanKodeLabel.setText("Kode Transaksi");
         kembalikanTglLabel.setText("Tanggal Kembali");
@@ -947,10 +951,13 @@ public class Menu extends javax.swing.JFrame {
         );
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
         kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
         kembalikanBukuPanelLayout.setHorizontalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -993,6 +1000,13 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(buttonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
 >>>>>>> Stashed changes
+=======
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        kembalikanBukuPanelLayout.setVerticalGroup(
+            kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+>>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         );
 
         fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
@@ -1040,7 +1054,8 @@ public class Menu extends javax.swing.JFrame {
         if(kode.equals("") || judul.equals("") || jenis.equals("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
-            Perpustakaan.inputBuku(kode, judul, jenis);
+            Buku buku = new Buku(kode, judul, jenis);
+            Perpustakaan.simpan("\\src\\main\\resources\\Buku.txt", buku.toString());
             JOptionPane.showMessageDialog(this, "Input buku berhasil!");
             kodeField.setText("");
             judulField.setText("");
@@ -1069,60 +1084,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        bukuTextArea.setText(Perpustakaan.baca("buku.txt"));
         cl.show(fieldCardPanel, "lihatBukuCard");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        siswaTextArea.setText(Perpustakaan.baca("siswa.txt"));
         cl.show(fieldCardPanel, "lihatSiswaCard");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        pinjamKodeField.setText("");
-        pinjamNisField.setText("");
-        pinjamKodeBukuField.setText("");
-        pinjamTglField.setText("");
         cl.show(fieldCardPanel, "pinjamBukuCard");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        kembalikanKodeField.setText("");
-        kembalikanTglField.setText("");
         cl.show(fieldCardPanel, "kembalikanBukuCard");
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void pinjamButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        String kode = pinjamKodeField.getText();
-        String nis = pinjamNisField.getText();
-        String kodeBuku = pinjamKodeBukuField.getText();
-        String tglPinjam = pinjamTglField.getText();
-
-        if (kode.isEmpty() || nis.isEmpty() || kodeBuku.isEmpty() || tglPinjam.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
-        } else {
-            String result = Perpustakaan.pinjamBuku(kode, nis, kodeBuku, tglPinjam);
-            JOptionPane.showMessageDialog(this, result);
-            pinjamKodeField.setText("");
-            pinjamNisField.setText("");
-            pinjamKodeBukuField.setText("");
-            pinjamTglField.setText("");
-        }
-    }
-
-    private void kembalikanButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        String kode = kembalikanKodeField.getText();
-        String tglKembali = kembalikanTglField.getText();
-
-        if (kode.isEmpty() || tglKembali.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
-        } else {
-            String result = Perpustakaan.kembalikanBuku(kode, tglKembali);
-            JOptionPane.showMessageDialog(this, result);
-            kembalikanKodeField.setText("");
-            kembalikanTglField.setText("");
-        }
-    }
 
     private void jenisFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisFieldActionPerformed
         // TODO add your handling code here:
@@ -1206,8 +1181,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea bukuTextArea;
-    private javax.swing.JTextArea siswaTextArea;
     private javax.swing.JTextField jenisField;
     private javax.swing.JLabel jenisLabel;
     private javax.swing.JPanel jenisPanel;
@@ -1251,20 +1224,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel nisPinjamPanel;
     private javax.swing.JPanel nisPinjamPanel1;
     private javax.swing.JPanel pinjamBukuPanel;
-    private javax.swing.JTextField pinjamKodeField;
-    private javax.swing.JTextField pinjamNisField;
-    private javax.swing.JTextField pinjamKodeBukuField;
-    private javax.swing.JTextField pinjamTglField;
-    private javax.swing.JButton pinjamButton;
-    private javax.swing.JLabel pinjamTransaksiLabel;
-    private javax.swing.JLabel pinjamNisLabel;
-    private javax.swing.JLabel pinjamBukuLabel;
-    private javax.swing.JLabel pinjamTglLabel;
-    private javax.swing.JTextField kembalikanKodeField;
-    private javax.swing.JTextField kembalikanTglField;
-    private javax.swing.JButton kembalikanButton;
-    private javax.swing.JLabel kembalikanKodeLabel;
-    private javax.swing.JLabel kembalikanTglLabel;
     private javax.swing.JButton registerBukuButton;
     private javax.swing.JButton registerSiswaButton;
     private javax.swing.JButton registerSiswaButton1;
