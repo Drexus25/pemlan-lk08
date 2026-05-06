@@ -45,16 +45,7 @@ public class Perpustakaan {
         simpan("siswa.txt", s.toString());
     }
 
-    static void inputBuku() {
-        System.out.print("Kode: ");
-        String kode = input.nextLine();
-
-        System.out.print("Judul: ");
-        String judul = input.nextLine();
-
-        System.out.print("Jenis: ");
-        String jenis = input.nextLine();
-
+    static void inputBuku(String kode, String judul, String jenis) {
         Buku b = new Buku(kode, judul, jenis);
         simpan("buku.txt", b.toString());
     }
@@ -65,12 +56,8 @@ public class Perpustakaan {
         simpan("transaksi.txt", t.toString());
     }
 
-    static void kembali() {
-        System.out.print("Kode Transaksi: ");
-        String kodeCari = input.nextLine();
-
-        System.out.print("Tanggal Kembali: ");
-        String tglKembali = input.nextLine();
+    static void kembali(String kodeTransaksi, String tglKembali) {
+        
 
         List<String> dataBaru = new ArrayList<>();
         boolean ditemukan = false;
@@ -81,7 +68,7 @@ public class Perpustakaan {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(" - ");
 
-                if (data[0].equals(kodeCari)) {
+                if (data[0].equals(kodeTransaksi)) {
                     ditemukan = true;
 
                     if (data[5].equals("1")) {
@@ -119,37 +106,5 @@ public class Perpustakaan {
         } catch (IOException e) {
             System.out.println("Error tulis file: " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-
-        int pilih;
-
-        do {
-            System.out.println("\n=== MENU ===");
-            System.out.println("1. Input Siswa");
-            System.out.println("2. Input Buku");
-            System.out.println("3. Lihat Siswa");
-            System.out.println("4. Lihat Buku");
-            System.out.println("5. Pinjam Buku");
-            System.out.println("6. Pengembalian Buku");
-            System.out.println("7. Lihat Transaksi");
-            System.out.println("0. Keluar");
-
-            System.out.print("Pilih: ");
-            pilih = input.nextInt();
-            input.nextLine();
-
-            switch (pilih) {
-               /* case 1: inputSiswa(); break;
-                case 2: inputBuku(); break;
-                case 3: tampil("siswa.txt"); break;
-                case 4: tampil("buku.txt"); break;
-                case 5: pinjam(); break;
-                case 6: kembali(); break;
-                case 7: tampil("transaksi.txt"); break;*/
-            }
-
-        } while (pilih != 0);
     }
 }
