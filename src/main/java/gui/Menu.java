@@ -61,9 +61,6 @@ public class Menu extends javax.swing.JFrame {
         jenisPanel = new javax.swing.JPanel();
         jenisLabel = new javax.swing.JLabel();
         jenisField = new javax.swing.JTextField();
-        lihatBukuPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        bukuTable = new javax.swing.JTable();
         inputSiswaPanel = new javax.swing.JPanel();
         nisPanel = new javax.swing.JPanel();
         nisField = new javax.swing.JTextField();
@@ -76,10 +73,24 @@ public class Menu extends javax.swing.JFrame {
         alamatField = new javax.swing.JTextField();
         buttonPanel1 = new javax.swing.JPanel();
         registerSiswaButton = new javax.swing.JButton();
+        lihatBukuPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bukuTable = new javax.swing.JTable();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         siswaTable = new javax.swing.JTable();
         pinjamBukuPanel = new javax.swing.JPanel();
+        kodeTransaksiPinjamPanel = new javax.swing.JPanel();
+        kodeTransaksiPinjamField = new javax.swing.JTextField();
+        kodeTransaksiPinjamLabel = new javax.swing.JLabel();
+        nisPinjamPanel = new javax.swing.JPanel();
+        nisPinjamField = new javax.swing.JTextField();
+        nisPinjamLabel = new javax.swing.JLabel();
+        kodeBukuPanel = new javax.swing.JPanel();
+        kodeBukuLabel = new javax.swing.JLabel();
+        kodeBukuField = new javax.swing.JTextField();
+        buttonPanel2 = new javax.swing.JPanel();
+        registerSiswaButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -268,47 +279,6 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(inputBukuPanel, "inputBukuCard");
 
-        bukuTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Kode Buku", "Judul", "Jenis"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(bukuTable);
-
-        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
-        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
-        lihatBukuPanelLayout.setHorizontalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-        );
-        lihatBukuPanelLayout.setVerticalGroup(
-            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-        );
-
-        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
-
         nisLabel.setText("NIS");
 
         javax.swing.GroupLayout nisPanelLayout = new javax.swing.GroupLayout(nisPanel);
@@ -427,6 +397,47 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(inputSiswaPanel, "inputSiswaCard");
 
+        bukuTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Kode Buku", "Judul", "Jenis"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(bukuTable);
+
+        javax.swing.GroupLayout lihatBukuPanelLayout = new javax.swing.GroupLayout(lihatBukuPanel);
+        lihatBukuPanel.setLayout(lihatBukuPanelLayout);
+        lihatBukuPanelLayout.setHorizontalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+        lihatBukuPanelLayout.setVerticalGroup(
+            lihatBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+        );
+
+        fieldCardPanel.add(lihatBukuPanel, "lihatBukuCard");
+
         siswaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -461,15 +472,120 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
+        kodeTransaksiPinjamLabel.setText("Kode Transaksi");
+
+        javax.swing.GroupLayout kodeTransaksiPinjamPanelLayout = new javax.swing.GroupLayout(kodeTransaksiPinjamPanel);
+        kodeTransaksiPinjamPanel.setLayout(kodeTransaksiPinjamPanelLayout);
+        kodeTransaksiPinjamPanelLayout.setHorizontalGroup(
+            kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kodeTransaksiPinjamPanelLayout.createSequentialGroup()
+                .addGroup(kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kodeTransaksiPinjamField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(kodeTransaksiPinjamPanelLayout.createSequentialGroup()
+                        .addComponent(kodeTransaksiPinjamLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        kodeTransaksiPinjamPanelLayout.setVerticalGroup(
+            kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeTransaksiPinjamPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kodeTransaksiPinjamLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kodeTransaksiPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+
+        nisPinjamLabel.setText("NIS");
+
+        javax.swing.GroupLayout nisPinjamPanelLayout = new javax.swing.GroupLayout(nisPinjamPanel);
+        nisPinjamPanel.setLayout(nisPinjamPanelLayout);
+        nisPinjamPanelLayout.setHorizontalGroup(
+            nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nisPinjamPanelLayout.createSequentialGroup()
+                .addGroup(nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nisPinjamField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(nisPinjamPanelLayout.createSequentialGroup()
+                        .addComponent(nisPinjamLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        nisPinjamPanelLayout.setVerticalGroup(
+            nisPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nisPinjamPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nisPinjamLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nisPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        kodeBukuLabel.setText("Kode Buku");
+
+        javax.swing.GroupLayout kodeBukuPanelLayout = new javax.swing.GroupLayout(kodeBukuPanel);
+        kodeBukuPanel.setLayout(kodeBukuPanelLayout);
+        kodeBukuPanelLayout.setHorizontalGroup(
+            kodeBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kodeBukuPanelLayout.createSequentialGroup()
+                .addGroup(kodeBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kodeBukuField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(kodeBukuPanelLayout.createSequentialGroup()
+                        .addComponent(kodeBukuLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        kodeBukuPanelLayout.setVerticalGroup(
+            kodeBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeBukuPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kodeBukuLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kodeBukuField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        registerSiswaButton1.setText("Daftar");
+        registerSiswaButton1.addActionListener(this::registerSiswaButton1ActionPerformed);
+
+        javax.swing.GroupLayout buttonPanel2Layout = new javax.swing.GroupLayout(buttonPanel2);
+        buttonPanel2.setLayout(buttonPanel2Layout);
+        buttonPanel2Layout.setHorizontalGroup(
+            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registerSiswaButton1)
+                .addContainerGap())
+        );
+        buttonPanel2Layout.setVerticalGroup(
+            buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerSiswaButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kodeTransaksiPinjamPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nisPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kodeBukuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kodeTransaksiPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nisPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kodeBukuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
@@ -594,6 +710,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jenisFieldActionPerformed
 
+    private void registerSiswaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerSiswaButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -626,6 +746,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTable bukuTable;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JPanel buttonPanel1;
+    private javax.swing.JPanel buttonPanel2;
     private javax.swing.JPanel buttonsPanel;
     private javax.swing.JPanel fieldCardPanel;
     private javax.swing.JPanel inputBukuPanel;
@@ -645,9 +766,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField judulField;
     private javax.swing.JLabel judulLabel;
     private javax.swing.JPanel judulPanel;
+    private javax.swing.JTextField kodeBukuField;
+    private javax.swing.JLabel kodeBukuLabel;
+    private javax.swing.JPanel kodeBukuPanel;
     private javax.swing.JTextField kodeField;
     private javax.swing.JLabel kodeLabel;
     private javax.swing.JPanel kodePanel;
+    private javax.swing.JTextField kodeTransaksiPinjamField;
+    private javax.swing.JLabel kodeTransaksiPinjamLabel;
+    private javax.swing.JPanel kodeTransaksiPinjamPanel;
     private javax.swing.JPanel lihatBukuPanel;
     private javax.swing.JPanel lihatSiswaPanel;
     private javax.swing.JTextField namaField;
@@ -656,9 +783,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField nisField;
     private javax.swing.JLabel nisLabel;
     private javax.swing.JPanel nisPanel;
+    private javax.swing.JTextField nisPinjamField;
+    private javax.swing.JLabel nisPinjamLabel;
+    private javax.swing.JPanel nisPinjamPanel;
     private javax.swing.JPanel pinjamBukuPanel;
     private javax.swing.JButton registerBukuButton;
     private javax.swing.JButton registerSiswaButton;
+    private javax.swing.JButton registerSiswaButton1;
     private javax.swing.JTable siswaTable;
     // End of variables declaration//GEN-END:variables
 }
