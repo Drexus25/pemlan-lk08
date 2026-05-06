@@ -56,11 +56,11 @@ public class Menu extends javax.swing.JFrame {
         judulPanel = new javax.swing.JPanel();
         judulField = new javax.swing.JTextField();
         judulLabel = new javax.swing.JLabel();
+        buttonPanel = new javax.swing.JPanel();
+        registerBukuButton = new javax.swing.JButton();
         jenisPanel = new javax.swing.JPanel();
         jenisLabel = new javax.swing.JLabel();
         jenisField = new javax.swing.JTextField();
-        buttonPanel = new javax.swing.JPanel();
-        registerBukuButton = new javax.swing.JButton();
         lihatBukuPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bukuTable = new javax.swing.JTable();
@@ -78,6 +78,7 @@ public class Menu extends javax.swing.JFrame {
         registerSiswaButton = new javax.swing.JButton();
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
+        siswaTable = new javax.swing.JTable();
         pinjamBukuPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,7 +180,7 @@ public class Menu extends javax.swing.JFrame {
             judulPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(judulPanelLayout.createSequentialGroup()
                 .addGroup(judulPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(judulField)
+                    .addComponent(judulField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                     .addGroup(judulPanelLayout.createSequentialGroup()
                         .addComponent(judulLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -192,7 +193,24 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(judulLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(judulField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addContainerGap())
+        );
+
+        registerBukuButton.setText("Daftar");
+        registerBukuButton.addActionListener(this::registerBukuButtonActionPerformed);
+
+        javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
+        buttonPanel.setLayout(buttonPanelLayout);
+        buttonPanelLayout.setHorizontalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
+                .addContainerGap(362, Short.MAX_VALUE)
+                .addComponent(registerBukuButton)
+                .addContainerGap())
+        );
+        buttonPanelLayout.setVerticalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerBukuButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jenisLabel.setText("Jenis");
@@ -221,23 +239,6 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        registerBukuButton.setText("Daftar");
-        registerBukuButton.addActionListener(this::registerBukuButtonActionPerformed);
-
-        javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
-        buttonPanel.setLayout(buttonPanelLayout);
-        buttonPanelLayout.setHorizontalGroup(
-            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(362, Short.MAX_VALUE)
-                .addComponent(registerBukuButton)
-                .addContainerGap())
-        );
-        buttonPanelLayout.setVerticalGroup(
-            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerBukuButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout inputBukuPanelLayout = new javax.swing.GroupLayout(inputBukuPanel);
         inputBukuPanel.setLayout(inputBukuPanelLayout);
         inputBukuPanelLayout.setHorizontalGroup(
@@ -247,8 +248,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(inputBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(judulPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jenisPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kodePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(kodePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jenisPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         inputBukuPanelLayout.setVerticalGroup(
@@ -260,7 +261,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(judulPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jenisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -426,11 +427,32 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(inputSiswaPanel, "inputSiswaCard");
 
+        siswaTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "NIS", "Nama", "Alamat"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(siswaTable);
+
         javax.swing.GroupLayout lihatSiswaPanelLayout = new javax.swing.GroupLayout(lihatSiswaPanel);
         lihatSiswaPanel.setLayout(lihatSiswaPanelLayout);
         lihatSiswaPanelLayout.setHorizontalGroup(
             lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
         lihatSiswaPanelLayout.setVerticalGroup(
             lihatSiswaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,8 +518,7 @@ public class Menu extends javax.swing.JFrame {
         if(kode.equals("") || judul.equals("") || jenis.equals("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
-            Buku buku = new Buku(kode, judul, jenis);
-            Perpustakaan.simpan("\\src\\main\\resources\\Buku.txt", buku.toString());
+            Perpustakaan.inputBuku(kode, judul, jenis);
             JOptionPane.showMessageDialog(this, "Input buku berhasil!");
             kodeField.setText("");
             judulField.setText("");
@@ -514,7 +535,7 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
             Perpustakaan.inputSiswa(nis, nama, alamat);
-            JOptionPane.showMessageDialog(this, "Input buku berhasil!");
+            JOptionPane.showMessageDialog(this, "Input siswa berhasil!");
             nisField.setText("");
             namaField.setText("");
             alamatField.setText("");
@@ -528,7 +549,7 @@ public class Menu extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DefaultTableModel dtm = (DefaultTableModel) bukuTable.getModel();
         dtm.setRowCount(0);
-        String filePath = "src/main/resources/siswa.txt";
+        String filePath = "src/main/resources/buku.txt";
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
             while((line = br.readLine()) != null){
@@ -544,6 +565,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        DefaultTableModel dtm = (DefaultTableModel) siswaTable.getModel();
+        dtm.setRowCount(0);
+        String filePath = "src/main/resources/siswa.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while((line = br.readLine()) != null){
+                String[] data = line.split(" - ");
+                dtm.addRow(data);
+            }
+        } catch (FileNotFoundException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        } catch (IOException ex) {
+            System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
         cl.show(fieldCardPanel, "lihatSiswaCard");
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -624,5 +659,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pinjamBukuPanel;
     private javax.swing.JButton registerBukuButton;
     private javax.swing.JButton registerSiswaButton;
+    private javax.swing.JTable siswaTable;
     // End of variables declaration//GEN-END:variables
 }
