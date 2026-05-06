@@ -4,13 +4,7 @@ import java.util.*;
 public class Perpustakaan {
     static Scanner input = new Scanner(System.in);
 
-    static boolean login() {
-        System.out.print("NIP: ");
-        String nip = input.nextLine();
-
-        System.out.print("Nama: ");
-        String nama = input.nextLine();
-
+    static boolean login(String nip, String nama) {
         if (nip.equals("123") && nama.equals("admin")) {
             return true;
         } else {
@@ -142,8 +136,6 @@ public class Perpustakaan {
     }
 
     public static void main(String[] args) {
-
-        if (!login()) return;
 
         int pilih;
 
