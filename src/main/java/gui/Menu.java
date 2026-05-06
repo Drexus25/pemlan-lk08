@@ -73,8 +73,6 @@ public class Menu extends javax.swing.JFrame {
         lihatSiswaPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pinjamBukuPanel = new javax.swing.JPanel();
-<<<<<<< HEAD
-<<<<<<< Updated upstream
         pinjamKodeField = new javax.swing.JTextField();
         pinjamNisField = new javax.swing.JTextField();
         pinjamKodeBukuField = new javax.swing.JTextField();
@@ -90,7 +88,6 @@ public class Menu extends javax.swing.JFrame {
         kembalikanButton = new javax.swing.JButton();
         kembalikanKodeLabel = new javax.swing.JLabel();
         kembalikanTglLabel = new javax.swing.JLabel();
-=======
         kodeTransaksiPanel = new javax.swing.JPanel();
         kodeTransaksiField = new javax.swing.JTextField();
         kodeTransaksiLabel = new javax.swing.JLabel();
@@ -138,10 +135,7 @@ public class Menu extends javax.swing.JFrame {
         kodeBukuPinjamField1 = new javax.swing.JTextField();
         buttonPanel3 = new javax.swing.JPanel();
         registerSiswaButton2 = new javax.swing.JButton();
->>>>>>> Stashed changes
-=======
         kembalikanBukuPanel = new javax.swing.JPanel();
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -480,15 +474,13 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
         pinjamTransaksiLabel.setText("Kode Transaksi");
         pinjamNisLabel.setText("NIS");
         pinjamBukuLabel.setText("Kode Buku");
         pinjamTglLabel.setText("Tanggal Pinjam");
         pinjamButton.setText("Pinjam");
         pinjamButton.addActionListener(this::pinjamButtonActionPerformed);
-=======
         kodeTransaksiLabel.setText("Kode Transaksi");
 
         javax.swing.GroupLayout kodeTransaksiPanelLayout = new javax.swing.GroupLayout(kodeTransaksiPanel);
@@ -769,19 +761,13 @@ public class Menu extends javax.swing.JFrame {
             buttonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registerSiswaButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
->>>>>>> Stashed changes
-
-=======
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
                     .addComponent(pinjamTransaksiLabel)
                     .addComponent(pinjamKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(pinjamNisLabel)
@@ -791,7 +777,6 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(pinjamTglLabel)
                     .addComponent(pinjamTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(pinjamButton, javax.swing.GroupLayout.Alignment.TRAILING))
-=======
                     .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nisPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kodeBukuPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -801,12 +786,10 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(dateMonthYearBorrowPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
->>>>>>> Stashed changes
                 .addContainerGap())
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pinjamTransaksiLabel)
@@ -827,7 +810,6 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(pinjamButton)
                 .addContainerGap(100, Short.MAX_VALUE))
-=======
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -842,25 +824,19 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
->>>>>>> Stashed changes
-=======
             .addGap(0, 452, Short.MAX_VALUE)
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 350, Short.MAX_VALUE)
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         );
 
         fieldCardPanel.add(pinjamBukuPanel, "pinjamBukuCard");
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
         kembalikanKodeLabel.setText("Kode Transaksi");
         kembalikanTglLabel.setText("Tanggal Kembali");
         kembalikanButton.setText("Kembalikan");
         kembalikanButton.addActionListener(this::kembalikanButtonActionPerformed);
-=======
         kodeTransaksiLabel1.setText("Kode Transaksi");
 
         javax.swing.GroupLayout kodeTransaksiPanel1Layout = new javax.swing.GroupLayout(kodeTransaksiPanel1);
@@ -949,37 +925,28 @@ public class Menu extends javax.swing.JFrame {
             buttonPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registerSiswaButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
->>>>>>> Stashed changes
-
-=======
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         javax.swing.GroupLayout kembalikanBukuPanelLayout = new javax.swing.GroupLayout(kembalikanBukuPanel);
         kembalikanBukuPanel.setLayout(kembalikanBukuPanelLayout);
         kembalikanBukuPanelLayout.setHorizontalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
                     .addComponent(kembalikanKodeLabel)
                     .addComponent(kembalikanKodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(kembalikanTglLabel)
                     .addComponent(kembalikanTglField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(kembalikanButton, javax.swing.GroupLayout.Alignment.TRAILING))
-=======
                     .addComponent(kodeTransaksiPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nisPinjamPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kodeBukuPinjamPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> Stashed changes
                 .addContainerGap())
         );
         kembalikanBukuPanelLayout.setVerticalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kembalikanBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< Updated upstream
                 .addComponent(kembalikanKodeLabel)
                 .addGap(5, 5, 5)
                 .addComponent(kembalikanKodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -990,7 +957,6 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(kembalikanButton)
                 .addContainerGap(200, Short.MAX_VALUE))
-=======
                 .addComponent(kodeTransaksiPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nisPinjamPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -999,14 +965,11 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(buttonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
->>>>>>> Stashed changes
-=======
             .addGap(0, 452, Short.MAX_VALUE)
         );
         kembalikanBukuPanelLayout.setVerticalGroup(
             kembalikanBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 350, Short.MAX_VALUE)
->>>>>>> parent of 1e5f42c (add lihat buku lihat siswa dan logika pinjam kembali)
         );
 
         fieldCardPanel.add(kembalikanBukuPanel, "kembalikanBukuCard");
@@ -1107,7 +1070,7 @@ public class Menu extends javax.swing.JFrame {
         String kodeTransaksi = kodeTransaksiField.getText();
         String nis = nisPinjamField.getText();
         String kodeBuku = kodeBukuPinjamField.getText();
-        StringBuilder sb = 
+        
     }//GEN-LAST:event_registerSiswaButton1ActionPerformed
 
     private void registerSiswaButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButton2ActionPerformed
