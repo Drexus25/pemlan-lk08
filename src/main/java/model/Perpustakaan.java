@@ -44,13 +44,13 @@ public class Perpustakaan {
         simpan("buku.txt", b.toString());
     }
 
-    static void pinjam(String kodeTransaksi, String nis, String kodeBuku, String tglPinjam, String tglKembali) {
+    public static void pinjam(String kodeTransaksi, String nis, String kodeBuku, String tglPinjam, String tglKembali) {
 
         Transaksi t = new Transaksi(kodeTransaksi, nis, kodeBuku, tglPinjam, "-", 0);
         simpan("transaksi.txt", t.toString());
     }
 
-    static void kembali(String kodeTransaksi, String tglKembali) {        
+    public static void kembali(String kodeTransaksi, String tglKembali) {        
         
 
         List<String> dataBaru = new ArrayList<>();
