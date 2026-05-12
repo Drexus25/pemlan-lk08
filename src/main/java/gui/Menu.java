@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Buku;
@@ -80,9 +81,6 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         siswaTable = new javax.swing.JTable();
         pinjamBukuPanel = new javax.swing.JPanel();
-        kodeTransaksiPinjamPanel = new javax.swing.JPanel();
-        kodeTransaksiPinjamField = new javax.swing.JTextField();
-        kodeTransaksiPinjamLabel = new javax.swing.JLabel();
         nisPinjamPanel = new javax.swing.JPanel();
         nisPinjamField = new javax.swing.JTextField();
         nisPinjamLabel = new javax.swing.JLabel();
@@ -91,6 +89,31 @@ public class Menu extends javax.swing.JFrame {
         kodeBukuField = new javax.swing.JTextField();
         buttonPanel2 = new javax.swing.JPanel();
         registerSiswaButton1 = new javax.swing.JButton();
+        dmyPinjamPanel = new javax.swing.JPanel();
+        dmyPinjamLabel = new javax.swing.JLabel();
+        datePinjamPanel = new javax.swing.JPanel();
+        datePinjamLabel = new javax.swing.JLabel();
+        datePinjamField = new javax.swing.JTextField();
+        monthPinjamPanel = new javax.swing.JPanel();
+        monthPinjamLabel = new javax.swing.JLabel();
+        monthPinjamField = new javax.swing.JTextField();
+        yearPinjamPanel = new javax.swing.JPanel();
+        yearPinjamLabel = new javax.swing.JLabel();
+        yearPinjamField = new javax.swing.JTextField();
+        dmyKembaliPanel = new javax.swing.JPanel();
+        dmyKembaliLabel = new javax.swing.JLabel();
+        dateKembaliPanel = new javax.swing.JPanel();
+        dateKembaliLabel = new javax.swing.JLabel();
+        dateKembaliField = new javax.swing.JTextField();
+        monthKembaliPanel = new javax.swing.JPanel();
+        monthKembaliLabel = new javax.swing.JLabel();
+        monthKembaliField = new javax.swing.JTextField();
+        yearKembaliPanel = new javax.swing.JPanel();
+        yearKembaliLabel = new javax.swing.JLabel();
+        yearKembaliField = new javax.swing.JTextField();
+        kodeTransaksiPanel = new javax.swing.JPanel();
+        kodeTransaksiField = new javax.swing.JTextField();
+        kodeTransaksiLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -472,30 +495,6 @@ public class Menu extends javax.swing.JFrame {
 
         fieldCardPanel.add(lihatSiswaPanel, "lihatSiswaCard");
 
-        kodeTransaksiPinjamLabel.setText("Kode Transaksi");
-
-        javax.swing.GroupLayout kodeTransaksiPinjamPanelLayout = new javax.swing.GroupLayout(kodeTransaksiPinjamPanel);
-        kodeTransaksiPinjamPanel.setLayout(kodeTransaksiPinjamPanelLayout);
-        kodeTransaksiPinjamPanelLayout.setHorizontalGroup(
-            kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kodeTransaksiPinjamPanelLayout.createSequentialGroup()
-                .addGroup(kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kodeTransaksiPinjamField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
-                    .addGroup(kodeTransaksiPinjamPanelLayout.createSequentialGroup()
-                        .addComponent(kodeTransaksiPinjamLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        kodeTransaksiPinjamPanelLayout.setVerticalGroup(
-            kodeTransaksiPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeTransaksiPinjamPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kodeTransaksiPinjamLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kodeTransaksiPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
-
         nisPinjamLabel.setText("NIS");
 
         javax.swing.GroupLayout nisPinjamPanelLayout = new javax.swing.GroupLayout(nisPinjamPanel);
@@ -561,6 +560,210 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(registerSiswaButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        dmyPinjamLabel.setText("Tanggal Pinjam");
+
+        datePinjamLabel.setText("Tanggal");
+
+        datePinjamField.addActionListener(this::datePinjamFieldActionPerformed);
+
+        javax.swing.GroupLayout datePinjamPanelLayout = new javax.swing.GroupLayout(datePinjamPanel);
+        datePinjamPanel.setLayout(datePinjamPanelLayout);
+        datePinjamPanelLayout.setHorizontalGroup(
+            datePinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(datePinjamLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(datePinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        datePinjamPanelLayout.setVerticalGroup(
+            datePinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datePinjamPanelLayout.createSequentialGroup()
+                .addComponent(datePinjamLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(datePinjamField)
+                .addContainerGap())
+        );
+
+        monthPinjamLabel.setText("Bulan");
+
+        javax.swing.GroupLayout monthPinjamPanelLayout = new javax.swing.GroupLayout(monthPinjamPanel);
+        monthPinjamPanel.setLayout(monthPinjamPanelLayout);
+        monthPinjamPanelLayout.setHorizontalGroup(
+            monthPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(monthPinjamLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(monthPinjamPanelLayout.createSequentialGroup()
+                .addComponent(monthPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        monthPinjamPanelLayout.setVerticalGroup(
+            monthPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monthPinjamPanelLayout.createSequentialGroup()
+                .addComponent(monthPinjamLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(monthPinjamField))
+        );
+
+        yearPinjamLabel.setText("Tahun");
+
+        javax.swing.GroupLayout yearPinjamPanelLayout = new javax.swing.GroupLayout(yearPinjamPanel);
+        yearPinjamPanel.setLayout(yearPinjamPanelLayout);
+        yearPinjamPanelLayout.setHorizontalGroup(
+            yearPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(yearPinjamLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(yearPinjamPanelLayout.createSequentialGroup()
+                .addComponent(yearPinjamField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        yearPinjamPanelLayout.setVerticalGroup(
+            yearPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yearPinjamPanelLayout.createSequentialGroup()
+                .addComponent(yearPinjamLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearPinjamField)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dmyPinjamPanelLayout = new javax.swing.GroupLayout(dmyPinjamPanel);
+        dmyPinjamPanel.setLayout(dmyPinjamPanelLayout);
+        dmyPinjamPanelLayout.setHorizontalGroup(
+            dmyPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dmyPinjamPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dmyPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dmyPinjamLabel)
+                    .addGroup(dmyPinjamPanelLayout.createSequentialGroup()
+                        .addComponent(datePinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monthPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yearPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        dmyPinjamPanelLayout.setVerticalGroup(
+            dmyPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dmyPinjamPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dmyPinjamLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dmyPinjamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datePinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        dmyKembaliLabel.setText("Tanggal Kembali");
+
+        dateKembaliLabel.setText("Tanggal");
+
+        dateKembaliField.addActionListener(this::dateKembaliFieldActionPerformed);
+
+        javax.swing.GroupLayout dateKembaliPanelLayout = new javax.swing.GroupLayout(dateKembaliPanel);
+        dateKembaliPanel.setLayout(dateKembaliPanelLayout);
+        dateKembaliPanelLayout.setHorizontalGroup(
+            dateKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dateKembaliLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dateKembaliField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        dateKembaliPanelLayout.setVerticalGroup(
+            dateKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dateKembaliPanelLayout.createSequentialGroup()
+                .addComponent(dateKembaliLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateKembaliField)
+                .addContainerGap())
+        );
+
+        monthKembaliLabel.setText("Bulan");
+
+        monthKembaliField.addActionListener(this::monthKembaliFieldActionPerformed);
+
+        javax.swing.GroupLayout monthKembaliPanelLayout = new javax.swing.GroupLayout(monthKembaliPanel);
+        monthKembaliPanel.setLayout(monthKembaliPanelLayout);
+        monthKembaliPanelLayout.setHorizontalGroup(
+            monthKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(monthKembaliLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(monthKembaliPanelLayout.createSequentialGroup()
+                .addComponent(monthKembaliField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        monthKembaliPanelLayout.setVerticalGroup(
+            monthKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monthKembaliPanelLayout.createSequentialGroup()
+                .addComponent(monthKembaliLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(monthKembaliField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        yearKembaliLabel.setText("Tahun");
+
+        javax.swing.GroupLayout yearKembaliPanelLayout = new javax.swing.GroupLayout(yearKembaliPanel);
+        yearKembaliPanel.setLayout(yearKembaliPanelLayout);
+        yearKembaliPanelLayout.setHorizontalGroup(
+            yearKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(yearKembaliLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(yearKembaliPanelLayout.createSequentialGroup()
+                .addComponent(yearKembaliField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        yearKembaliPanelLayout.setVerticalGroup(
+            yearKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yearKembaliPanelLayout.createSequentialGroup()
+                .addComponent(yearKembaliLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearKembaliField)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dmyKembaliPanelLayout = new javax.swing.GroupLayout(dmyKembaliPanel);
+        dmyKembaliPanel.setLayout(dmyKembaliPanelLayout);
+        dmyKembaliPanelLayout.setHorizontalGroup(
+            dmyKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dmyKembaliPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dmyKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dmyKembaliLabel)
+                    .addGroup(dmyKembaliPanelLayout.createSequentialGroup()
+                        .addComponent(dateKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monthKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yearKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dmyKembaliPanelLayout.setVerticalGroup(
+            dmyKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dmyKembaliPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dmyKembaliLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dmyKembaliPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        kodeTransaksiLabel.setText("Kode Transaksi");
+
+        javax.swing.GroupLayout kodeTransaksiPanelLayout = new javax.swing.GroupLayout(kodeTransaksiPanel);
+        kodeTransaksiPanel.setLayout(kodeTransaksiPanelLayout);
+        kodeTransaksiPanelLayout.setHorizontalGroup(
+            kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kodeTransaksiPanelLayout.createSequentialGroup()
+                .addGroup(kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kodeTransaksiField, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addGroup(kodeTransaksiPanelLayout.createSequentialGroup()
+                        .addComponent(kodeTransaksiLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        kodeTransaksiPanelLayout.setVerticalGroup(
+            kodeTransaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kodeTransaksiPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(kodeTransaksiLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kodeTransaksiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout pinjamBukuPanelLayout = new javax.swing.GroupLayout(pinjamBukuPanel);
         pinjamBukuPanel.setLayout(pinjamBukuPanelLayout);
         pinjamBukuPanelLayout.setHorizontalGroup(
@@ -568,22 +771,31 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kodeTransaksiPinjamPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nisPinjamPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kodeBukuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
+                        .addComponent(dmyPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dmyKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pinjamBukuPanelLayout.setVerticalGroup(
             pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pinjamBukuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kodeTransaksiPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(kodeTransaksiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nisPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kodeBukuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pinjamBukuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dmyPinjamPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dmyKembaliPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(buttonPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -700,6 +912,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         cl.show(fieldCardPanel, "pinjamBukuCard");
+        datePinjamField.setText(String.format("%d", LocalDateTime.now().getDayOfMonth()));
+        monthPinjamField.setText(String.format("%d", LocalDateTime.now().getMonthValue()));
+        yearPinjamField.setText(String.format("%d", LocalDateTime.now().getYear()));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -711,8 +926,34 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jenisFieldActionPerformed
 
     private void registerSiswaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSiswaButton1ActionPerformed
-        // TODO add your handling code here:
+        String kodeTransaksi = kodeTransaksiField.getText();
+        String nis = nisField.getText();
+        String kodeBuku = kodeBukuField.getText();
+        String tglPinjam = String.format("%s/%s/%s", datePinjamField.getText(), monthPinjamField.getText(), yearPinjamField.getText());
+        String tglKembali = String.format("%s/%s/%s", dateKembaliField.getText(), monthKembaliField.getText(), yearKembaliField.getText());
+        
+        if(nis.equalsIgnoreCase("")  || kodeBuku.equalsIgnoreCase("") || tglPinjam.equalsIgnoreCase("") || tglKembali.equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!");    
+        } else{
+            Perpustakaan.pinjam(kodeTransaksi, nis, kodeBuku, tglPinjam, tglKembali);
+        }
+        JOptionPane.showMessageDialog(this, "Peminjaman berhasil!");
+        datePinjamField.setText(String.format("%d", LocalDateTime.now().getDayOfMonth()));
+        monthPinjamField.setText(String.format("%d", LocalDateTime.now().getMonthValue()));
+        yearPinjamField.setText(String.format("%d", LocalDateTime.now().getYear()));
     }//GEN-LAST:event_registerSiswaButton1ActionPerformed
+
+    private void datePinjamFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datePinjamFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_datePinjamFieldActionPerformed
+
+    private void dateKembaliFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateKembaliFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateKembaliFieldActionPerformed
+
+    private void monthKembaliFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthKembaliFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthKembaliFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -748,6 +989,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel buttonPanel1;
     private javax.swing.JPanel buttonPanel2;
     private javax.swing.JPanel buttonsPanel;
+    private javax.swing.JTextField dateKembaliField;
+    private javax.swing.JLabel dateKembaliLabel;
+    private javax.swing.JPanel dateKembaliPanel;
+    private javax.swing.JTextField datePinjamField;
+    private javax.swing.JLabel datePinjamLabel;
+    private javax.swing.JPanel datePinjamPanel;
+    private javax.swing.JLabel dmyKembaliLabel;
+    private javax.swing.JPanel dmyKembaliPanel;
+    private javax.swing.JLabel dmyPinjamLabel;
+    private javax.swing.JPanel dmyPinjamPanel;
     private javax.swing.JPanel fieldCardPanel;
     private javax.swing.JPanel inputBukuPanel;
     private javax.swing.JPanel inputSiswaPanel;
@@ -757,9 +1008,30 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jenisField;
     private javax.swing.JLabel jenisLabel;
     private javax.swing.JPanel jenisPanel;
@@ -772,11 +1044,17 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField kodeField;
     private javax.swing.JLabel kodeLabel;
     private javax.swing.JPanel kodePanel;
-    private javax.swing.JTextField kodeTransaksiPinjamField;
-    private javax.swing.JLabel kodeTransaksiPinjamLabel;
-    private javax.swing.JPanel kodeTransaksiPinjamPanel;
+    private javax.swing.JTextField kodeTransaksiField;
+    private javax.swing.JLabel kodeTransaksiLabel;
+    private javax.swing.JPanel kodeTransaksiPanel;
     private javax.swing.JPanel lihatBukuPanel;
     private javax.swing.JPanel lihatSiswaPanel;
+    private javax.swing.JTextField monthKembaliField;
+    private javax.swing.JLabel monthKembaliLabel;
+    private javax.swing.JPanel monthKembaliPanel;
+    private javax.swing.JTextField monthPinjamField;
+    private javax.swing.JLabel monthPinjamLabel;
+    private javax.swing.JPanel monthPinjamPanel;
     private javax.swing.JTextField namaField;
     private javax.swing.JLabel namaLabel;
     private javax.swing.JPanel namaPanel;
@@ -791,5 +1069,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton registerSiswaButton;
     private javax.swing.JButton registerSiswaButton1;
     private javax.swing.JTable siswaTable;
+    private javax.swing.JTextField yearKembaliField;
+    private javax.swing.JLabel yearKembaliLabel;
+    private javax.swing.JPanel yearKembaliPanel;
+    private javax.swing.JTextField yearPinjamField;
+    private javax.swing.JLabel yearPinjamLabel;
+    private javax.swing.JPanel yearPinjamPanel;
     // End of variables declaration//GEN-END:variables
 }
