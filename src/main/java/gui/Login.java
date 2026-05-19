@@ -192,32 +192,32 @@ public class Login extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         nip = nipField.getText();
         password = passwordField.getText();
-        String tryNip = null;
-        String tryPassword = null;
-        String[] data = null;        
+              
         String filepath = "src/main/resources/pegawai.txt";
         if(nip.equalsIgnoreCase("") || password.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
+            boolean loginSuccess = false;
            try(BufferedReader br = new BufferedReader(new FileReader(filepath))){
                 String line;
                 while((line = br.readLine()) != null){
-                    data = line.split(" - ");                
-                }
-                for (int i = 0; i < data.length; i++) {
-                    if(data[i].equalsIgnoreCase(nip)){
-                        tryNip = data[i];
-                        tryPassword = data[i+2];
-                        break;
+                    String[] data = line.split(" - ");                
+                    if(data.length >= 3){
+                        String tryNip = data[0];
+                        String tryPassword = data[2];
+                        
+                        if(tryNip.equalsIgnoreCase(nip) && tryPassword.equalsIgnoreCase(password)){
+                            loginSuccess = true;
+                            break;
+                        }
                     }
+                }               
+                if (loginSuccess) {
+                    new Menu().setVisible(true);
+                    this.dispose();
+                } else{
+                    JOptionPane.showMessageDialog(this, "NIP atau Password salah!");                    
                 }
-                if (tryNip.equalsIgnoreCase(nip) && tryPassword.equalsIgnoreCase(password)) {
-                        new Menu().setVisible(true);
-                        this.dispose();
-                    } else{
-                        JOptionPane.showMessageDialog(this, "NIP atau Password salah!");
-                        return;
-                    }
             } catch (FileNotFoundException ex) {
                 System.getLogger(Login.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             } catch (IOException ex) {
