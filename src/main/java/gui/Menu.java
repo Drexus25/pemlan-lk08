@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Buku;
-import model.Perpustakaan;
+import controller.Perpustakaan;
 import model.Siswa;
 
 /**
@@ -1014,7 +1014,7 @@ public class Menu extends javax.swing.JFrame {
         if(nis.equalsIgnoreCase("")  || kodeBuku.equalsIgnoreCase("") || tglPinjam.equalsIgnoreCase("") || tglKembali.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");    
         } else{
-            Perpustakaan.pinjam(kodeTransaksi, nis, kodeBuku, tglPinjam, tglKembali);
+            Perpustakaan.pinjam(kodeTransaksi, nis, kodeBuku, tglPinjam, tglKembali, getUsername());
         }
         JOptionPane.showMessageDialog(this, "Peminjaman berhasil!");
         datePinjamField.setText(String.format("%d", LocalDateTime.now().getDayOfMonth()));
@@ -1058,13 +1058,11 @@ public class Menu extends javax.swing.JFrame {
         try(BufferedReader br = new BufferedReader(new FileReader(filepath))){
             String line;
             while((line = br.readLine()) != null){
-                data = line.split(" - ");                
-            }
-            for (int i = 0; i < data.length; i++) {
-                if (data[i].equalsIgnoreCase(nip)) {
-                    return data[i+1];
+                data = line.split(" - "); 
+                if(data.length >= 3){
+                        return data[1];
                 }
-            }          
+            }                         
         } catch (FileNotFoundException ex) {
             System.getLogger(Menu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         } catch (IOException ex) {
