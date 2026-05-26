@@ -925,7 +925,7 @@ public class Menu extends javax.swing.JFrame {
         if(kode.equals("") || judul.equals("") || jenis.equals("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");
         } else{
-            Perpustakaan.inputBuku(kode, judul, jenis);
+            Perpustakaan.inputBuku(judul, kode, jenis);
             JOptionPane.showMessageDialog(this, "Input buku berhasil!");
             kodeField.setText("");
             judulField.setText("");
@@ -1006,7 +1006,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void bookBorrowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBorrowButtonActionPerformed
         String kodeTransaksi = kodeTransaksiField.getText();
-        String nis = nisField.getText();
+        String nis = nisPinjamField.getText();
         String kodeBuku = kodeBukuField.getText();
         String tglPinjam = String.format("%s/%s/%s", datePinjamField.getText(), monthPinjamField.getText(), yearPinjamField.getText());
         String tglKembali = String.format("%s/%s/%s", dateKembaliField.getText(), monthKembaliField.getText(), yearKembaliField.getText());
@@ -1014,9 +1014,9 @@ public class Menu extends javax.swing.JFrame {
         if(nis.equalsIgnoreCase("")  || kodeBuku.equalsIgnoreCase("") || tglPinjam.equalsIgnoreCase("") || tglKembali.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!");    
         } else{
-            Perpustakaan.pinjam(kodeTransaksi, nis, kodeBuku, tglPinjam, tglKembali, getUsername());
+            Perpustakaan.pinjam(kodeTransaksi, nis, kodeBuku, tglPinjam, tglKembali, username);
+            JOptionPane.showMessageDialog(this, "Peminjaman berhasil!");
         }
-        JOptionPane.showMessageDialog(this, "Peminjaman berhasil!");
         datePinjamField.setText(String.format("%d", LocalDateTime.now().getDayOfMonth()));
         monthPinjamField.setText(String.format("%d", LocalDateTime.now().getMonthValue()));
         yearPinjamField.setText(String.format("%d", LocalDateTime.now().getYear()));
@@ -1060,7 +1060,9 @@ public class Menu extends javax.swing.JFrame {
             while((line = br.readLine()) != null){
                 data = line.split(" - "); 
                 if(data.length >= 3){
+                    if(data[0].equals(nip)) {
                         return data[1];
+                    }
                 }
             }                         
         } catch (FileNotFoundException ex) {
@@ -1129,30 +1131,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jenisField;
     private javax.swing.JLabel jenisLabel;
     private javax.swing.JPanel jenisPanel;

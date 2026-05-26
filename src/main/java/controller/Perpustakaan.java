@@ -37,8 +37,8 @@ public class Perpustakaan {
         simpan("siswa.txt", s.toString());
     }
 
-    public static void inputBuku(String kode, String judul, String jenis) {
-        Buku b = new Buku(kode, judul, jenis);
+    public static void inputBuku(String judul, String kode, String jenis) {
+        Buku b = new Buku(judul, kode, jenis);
         simpan("buku.txt", b.toString());
     }
 
@@ -48,55 +48,68 @@ public class Perpustakaan {
         simpan("transaksi.txt", t.toString());
     }
 
-    public static void kembali(String kodeTransaksi, String tglKembali) {        
-        
+    public static void kembali(String kodeTransaksi, String tglKembali) {
 
-        List<String> dataBaru = new ArrayList<>();
-        boolean ditemukan = false;
+    List<String> dataBaru = new ArrayList<>();
+    boolean ditemukan = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/transaksi.txt"))) {
-            String line;
+    try (BufferedReader br = new BufferedReader(
+            new FileReader("src/main/resources/transaksi.txt"))) {
 
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(" - ");
+        String line;
 
-                if (data[0].equals(kodeTransaksi)) {
-                    ditemukan = true;
+        while ((line = br.readLine()) != null) {
 
-                    if (data[5].equals("1")) {
-                        System.out.println("Buku sudah dikembalikan!");
-                        dataBaru.add(line);
-                        continue;
-                    }
+            String[] data = line.split(" - ");
 
-                    data[4] = tglKembali;
-                    data[5] = "1";
+            if (data[0].equals(kodeTransaksi)) {
 
-                    String hasil = String.join(" - ", data);
-                    dataBaru.add(hasil);
+                ditemukan = true;
 
-                    System.out.println("Pengembalian berhasil!");
-                } else {
+                if (data[5].equals("1")) {
+
+                    System.out.println("Buku sudah dikembalikan!");
                     dataBaru.add(line);
+                    continue;
                 }
+
+                data[4] = tglKembali;
+                data[5] = "1";
+
+                String hasil = String.join(" - ", data);
+                dataBaru.add(hasil);
+
+                System.out.println("Pengembalian berhasil!");
+
+            } else {
+
+                dataBaru.add(line);
             }
-
-        } catch (IOException e) {
-            System.out.println("Error baca file: " + e.getMessage());
-            return;
         }
 
-        if (!ditemukan) {
-            System.out.println("Transaksi tidak ditemukan!");
-            return;
-        }
+    } catch (IOException e) {
 
-        try (FileWriter fw = new FileWriter("transaksi.txt")) {
-            for (String s : dataBaru) {
-                fw.write(s + "\n");
-            }
-        } catch (IOException e) {
-            System.out.println("Error tulis file: " + e.getMessage());
-        }
+        System.out.println("Error baca file: " + e.getMessage());
+        return;
     }
+
+    if (!ditemukan) {
+
+        System.out.println("Transaksi tidak ditemukan!");
+        return;
+    }
+
+    try (FileWriter fw = new FileWriter(
+            "src/main/resources/transaksi.txt")) {
+
+        for (String s : dataBaru) {
+
+            fw.write(s + "\n");
+        }
+
+    } catch (IOException e) {
+
+        System.out.println("Error tulis file: " + e.getMessage());
+    }
+}
 }

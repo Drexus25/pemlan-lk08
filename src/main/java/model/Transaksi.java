@@ -10,6 +10,7 @@ public class Transaksi {
         this.kodeBuku = kodeBuku;
         this.tglPinjam = tglPinjam;
         this.tglKembali = tglKembali;
+        this.petugas = petugas;
         this.status = status;
     }
 
